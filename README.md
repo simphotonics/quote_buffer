@@ -1,5 +1,5 @@
 # Quote Buffer
-
+[![Build Status](https://travis-ci.com/simphotonics/quote_buffer.svg?branch=master)](https://travis-ci.com/simphotonics/quote_buffer)
 
 ## Introduction
 
