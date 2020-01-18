@@ -7,7 +7,7 @@ Automated code generation can be used to eliminate the need of writing and maint
 parts of a software. In order to add a string literal to generated source code, it is required
 to create strings whose content is delimited by escaped quotation marks.
 
-In the following such string are called *quoted strings*. `QuoteBuffer` simplifies
+In the following such strings are called *quoted strings*. `QuoteBuffer` simplifies
 adding quoted strings to a string buffer.
 
 ## Usage
