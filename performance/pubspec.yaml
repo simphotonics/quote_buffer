@@ -1,0 +1,14 @@
+name: performance
+description:
+  Benchmark comparing QuoteBuffer and StringBuffer.
+
+homepage: https://github.com/simphotonics/quote_buffer
+
+environment:
+  sdk: '>=2.3.0 <3.0.0'
+
+dependencies:
+  quote_buffer:
+    path: ../
+  benchmark_harness: ^1.0.5
+  ansicolor: ^1.0.2
