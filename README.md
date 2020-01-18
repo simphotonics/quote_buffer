@@ -12,7 +12,8 @@ string are called *quoted strings*.
 
 ## Usage
 
-`QuoteBuffer` adds the following methods for writing quoted strings to `StringBuffer`:
+`QuoteBuffer` extends `StringBuffer`. It adds the following methods
+for writing quoted strings to the buffer:
 - `writeQ(Object obj)`
     Converts an object to a quoted string.
 - `writelnQ(Object obj)`
