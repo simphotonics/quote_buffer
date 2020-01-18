@@ -171,7 +171,9 @@ The program above can be run in a terminal by navigating to the
 folder *example* in your local copy of this library and using the command:
 ```Shell
 $ dart example_code_gen.dart
-
+```
+The expected output is:
+```Shell
 /// Statement used to initialize the table User.
 final String init = 'CREATE TABLE User ('
     'id INTEGER PRIMARY KEY,'
