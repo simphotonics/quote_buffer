@@ -4,7 +4,7 @@ description:
   to Dart's string buffer.
 
 
-version: 0.0.1
+version: 0.0.3
 homepage: https://github.com/simphotonics/quote_buffer
 
 environment:
