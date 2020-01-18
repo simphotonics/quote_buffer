@@ -33,7 +33,7 @@ class QuoteBuffer extends StringBuffer {
   ///
   /// A [separator] string is optional.
   void writeAllQ(Iterable objects, [String separator = '']) {
-    Iterator iterator = objects.iterator;
+    var iterator = objects.iterator;
     if (!iterator.moveNext()) return;
     write(_delim);
     if (separator.isEmpty) {
@@ -54,7 +54,7 @@ class QuoteBuffer extends StringBuffer {
   /// to a quoted string terminated with a
   /// newline. Separators are optional.
   void writelnAllQ(Iterable objects, [String separator = '']) {
-    Iterator iterator = objects.iterator;
+    var iterator = objects.iterator;
     if (!iterator.moveNext()) return;
 
     if (separator.isEmpty) {
@@ -79,12 +79,12 @@ class QuoteBuffer extends StringBuffer {
   /// Converts the contents of [obj] to a quoted string
   /// and adds the string to the buffer.
   void writeQ(Object obj) {
-    String string = '$obj';
+    var string = '$obj';
     if (string.isEmpty) return;
-    // write(_delim);
-    // write(string);
-    // write(_delim);
-    write("$_delim$string$_delim");
+    write(_delim);
+    write(string);
+    write(_delim);
+
   }
 
   /// Converts the content of [obj] to a quoted string
