@@ -84,7 +84,6 @@ class QuoteBuffer extends StringBuffer {
     write(_delim);
     write(string);
     write(_delim);
-
   }
 
   /// Converts the content of [obj] to a quoted string
