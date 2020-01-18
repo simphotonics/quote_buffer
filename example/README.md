@@ -3,7 +3,8 @@
 
 ## Examples
 
-The examples located in this folder show how to use the class `QuoteBuffer` to simplify the generation of Dart string literals that are enclosed with escaped quotation marks.
+The examples located in this folder show how to use the class `QuoteBuffer` to simplify the
+generation of string literals whose content is enclosed by escaped quotation marks.
 
 The file [example.dart] demonstrates how to use the methods:
 - `string(Object obj)`
@@ -12,8 +13,8 @@ The file [example.dart] demonstrates how to use the methods:
 - `stinglnAll(Iterable<Object> objects)`.
 
 The intended use of `QuoteBuffer` is with source code generating packages like [code_builder].
-The file [example_code_gen.dart] contains a short program illustrating how use to quotation mark
-enclosed multi-line string literals with a source code generator.
+The file [example_code_gen.dart] contains a short program illustrating how use `QuoteBuffer` with
+a code builder.
 
 
 ## Features and bugs
