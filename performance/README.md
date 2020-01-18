@@ -1,9 +1,10 @@
-# Quoted String Buffer
+# Quote Buffer
 
 
 ## Benchmark
 
-To run the benchmark program, navigate to the benchmark folder in your downloaded copy of this library and use
+To run the benchmark program, navigate to the performance folder in your downloaded
+copy of this library and use
 the following command:
 ```shell
 # dart benchmark.dart
