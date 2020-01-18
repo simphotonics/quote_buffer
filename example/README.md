@@ -1,4 +1,4 @@
-# Code String Buffer
+# Quote Buffer
 
 
 ## Examples
