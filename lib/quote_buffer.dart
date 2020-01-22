@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:generic_enum/generic_enum.dart';
 
 /// StringBuffer with additional methods:
@@ -108,9 +107,4 @@ class QuotationMark extends GenericEnum<String> {
 
   /// The value of this instance is the double quotation mark character: <">.
   static const Double = QuotationMark._('\"');
-
-  static final valueMap = BuiltMap<String, QuotationMark>({
-    '\'': Single,
-    '\"': Double,
-  });
 }
