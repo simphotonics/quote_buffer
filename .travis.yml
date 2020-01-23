@@ -5,11 +5,14 @@ dart:
 # Install the latest dev release
 - dev
 
-dart_task:
+#dart_task:
+#
+# # As long as you don't want any other configuration, you can just use the name
+# # of a task instead of "name: true".
+# - test
 
-# As long as you don't want any other configuration, you can just use the name
-# of a task instead of "name: true".
-- test
+# # Warnings are fatal, but we only analyze the lib/ directory.
+# - dartanalyzer: --fatal-warnings lib
 
-# Warnings are fatal, but we only analyze the lib/ directory.
-- dartanalyzer: --fatal-warnings lib
+script:
+  - scripts/travis.sh
