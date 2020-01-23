@@ -1,4 +1,6 @@
 #!/bin/bash --
+# Adapted from https://github.com/google/built_value.dart/blob/master/tool/presubmit
+# BSD-3 Clause License file: https://github.com/google/built_value.dart/blob/master/LICENSE
 
 # Defining colours
 BLUE='\033[1;34m'
@@ -10,20 +12,11 @@ RESET='\033[0m'
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-# for directory in $directories; do
-#   echo
-#   echo "*** Formatting $directory..."
-#   echo
-#   cd "$parent_directory/$directory"
-
-#   dartfmt -w $(find bin lib test -name \*.dart 2>/dev/null)
-# done
-
-
 # Resolving dependencies
 echo
 echo -e "${BLUE}=== Resolving dependencies $PWD...${RESET}"
 echo
+
 # Make sure .dart_tool/package_config.json exists.
 pub get
 
@@ -46,33 +39,20 @@ echo
 echo -e "${CYAN}=== Testing $PWD...${RESET}"
 echo
 
-# Only run libary has test dependency
+# Only run if libary has test dependency
 grep -q test pubspec.yaml && \
 pub run test
 
-# Running benchmark
-cd performance
-echo
-echo -e "${GREEN}=== Running Benchmark $PWD...${RESET}"
-echo
 
-pub get
-pub upgrade
-dartanalyzer --fatal-warnings --fatal-infos *.dart
-dart ./benchmark.dart
+# ==============================
+# Running examples and benchmark
+# ===============================
 
-# Running example
-cd ../example
-echo
-echo -e  "${YELLOW}=== Running Examples in $PWD...${RESET}"
-echo
+# Directories to be processed
+directories="example performance"
 
-pub get
-pub upgrade
-
-
-dart ./example.dart
-dartanalyzer --fatal-warnings --fatal-infos *.dart
-
-echo
-dart ./example_code_gen.dart
+for directory in $directories; do
+  cd $directory
+  ./tool/travis.sh
+  cd ..
+done
