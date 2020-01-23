@@ -15,4 +15,4 @@ dart:
 # - dartanalyzer: --fatal-warnings lib
 
 script:
-  - scripts/travis.sh
+  - tool/travis.sh
