@@ -56,6 +56,9 @@ echo
 echo -e "${GREEN}=== Running Benchmark $PWD...${RESET}"
 echo
 
+pub get
+pub upgrade
+dartanalyzer --fatal-warnings --fatal-infos *.dart
 dart ./benchmark.dart
 
 # Running example
@@ -64,7 +67,12 @@ echo
 echo -e  "${YELLOW}=== Running Examples in $PWD...${RESET}"
 echo
 
+pub get
+pub upgrade
+
+
 dart ./example.dart
+dartanalyzer --fatal-warnings --fatal-infos *.dart
 
 echo
 dart ./example_code_gen.dart
