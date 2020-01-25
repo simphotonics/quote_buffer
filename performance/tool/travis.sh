@@ -1,6 +1,6 @@
 #!/bin/bash --
 
-# Running code_buffer benchmark
+# Running QuoteBuffer benchmark
 
 # Defining colours
 BLUE='\033[1;34m'
