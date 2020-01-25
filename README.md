@@ -15,15 +15,36 @@ adding quoted strings to a string buffer.
 `QuoteBuffer` extends `StringBuffer`. It adds the following methods
 for writing quoted strings to the buffer:
 - `writeQ(Object obj)`
-    Converts an object to a quoted string.
+  ```Dart
+  var qbuffer = QuoteBuffer();
+  // Converts an object to a quoted string.
+  qbuffer.writeQ(29);  // Adds:'\'29\''
+  ```
 - `writelnQ(Object obj)`
-    Converts an object to a quoted string followed by a newline symbol.
+   ```Dart
+  // Converts an object to a quoted string followed by a newline symbol.
+  buffer.writelnQ('name');  // Adds:'\'name\'\n'
+  ```
 - `writeAllQ(Iterable<Object> objects,[String separator])`
-     Converts a list of objects to a quoted string. Separators are optional.
+  ```Dart
+  // Converts a list of objects to a quoted string.
+  // Separators are optional.
+  buffer.writeAllQ(['one','two'], ',');  // Adds:'\'one,two\''
+  ```
 - `writelnAllQ(Iterable<Object> objects,[String separator])`
-     Converts each object in the list of objects to a quoted string followed by
-      a newline symbol. Separators are optional.
 
+  ```Dart
+  // Converts each object in the list of objects
+  // to a quoted string followed by a newline symbol.
+  //  Separators are optional.
+  //
+  // Adds:
+  // '\'one\';\n'
+  // '\'two\';\n'
+  // '\'three\';\n''
+  // '\'four\'\n'
+  buffer.writelnAllQ(strings, ';');
+  ```
 
 Using a program it is easy to demonstrate how these methods work.
 The program can be run in a terminal by navigating to the
