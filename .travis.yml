@@ -16,3 +16,7 @@ dart:
 
 script:
   - tool/travis.sh
+
+cache:
+  directories:
+    - $HOME/.pub-cache
