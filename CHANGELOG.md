@@ -13,3 +13,7 @@ Amended variable annotations.
 # 0.0.4
 
 Removed dependency on built_collection.
+
+# 0.0.5
+
+Amended README.md in folder example.
