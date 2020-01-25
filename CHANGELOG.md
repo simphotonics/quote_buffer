@@ -21,3 +21,7 @@ Amended README.md in folder example.
 # 0.0.6
 
 Amended README.md.
+
+# 0.0.7
+
+Formatted method list in README.md.
