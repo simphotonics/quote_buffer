@@ -14,27 +14,27 @@ adding quoted strings to a string buffer.
 
 **QuoteBuffer** extends Dart's **StringBuffer**. It adds the following methods
 for writing quoted strings to the buffer:
-- **writeQ**(Object obj):
+- ```writeQ(Object obj):```:
   Converts an object to a quoted string.
   ```Dart
   var buffer = QuoteBuffer();
   // Adds:'\'29\''
   buffer.writeQ(29);
   ```
-- **writelnQ**(Object obj):
+- ```writelnQ(Object obj):```
   Converts an object to a quoted string followed by a newline symbol.
   ```Dart
   // Adds:'\'name\'\n'
   buffer.writelnQ('name');
   ```
-- **writeAllQ**(Iterable<Object> objects,[String separator]):
+- ```writeAllQ(Iterable<Object> objects,[String separator]):```
   Converts a list of objects to a quoted string.
   Separators are optional.
   ```Dart
   // Adds:'\'one,two\''
   buffer.writeAllQ(['one','two'], ',');
   ```
-- **writelnAllQ**(Iterable<Object> objects,[String separator]):
+- ```writelnAllQ(Iterable<Object> objects,[String separator]):```
   Converts each object in the list of objects
   to a quoted string followed by a newline symbol.
   Separators are optional.
