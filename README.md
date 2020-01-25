@@ -20,7 +20,7 @@ for writing quoted strings to the buffer:
   // Adds:'\'29\''
   buffer.writeQ(29);
   ```
-- **writelnQ**(Object obj):Converts an object to a quoted string followed by a newline symbol.
+- **writelnQ**(Object obj): Converts an object to a quoted string followed by a newline symbol.
   ```Dart
   // Adds:'\'name\'\n'
   buffer.writelnQ('name');
