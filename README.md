@@ -57,4 +57,4 @@ Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/quote_buffer/issues
 [code_builder]: https://pub.dev/packages/code_builder
-[example]: (example)
+[example]: example
