@@ -17,3 +17,7 @@ Removed dependency on built_collection.
 # 0.0.5
 
 Amended README.md in folder example.
+
+# 0.0.6
+
+Amended README.md.
