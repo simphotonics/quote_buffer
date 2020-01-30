@@ -1,16 +1,14 @@
-import 'package:generic_enum/generic_enum.dart';
-
 /// StringBuffer with additional methods:
 ///
-/// stringln, stringlnAll, string, stringAll
+/// [writeQ], [writelnQ], [writeAllQ], [writelnAllQ].
 ///
 /// These methods convert objects
 /// to string literals enclosed by quotation marks
-/// and add them to the buffer.
+/// before adding them to the string buffer.
 class QuoteBuffer extends StringBuffer {
   /// Creates an object of type [CodeBuffer].
   ///
-  /// Use the methods: string, stringAll, stringln, stringlnAll
+  /// Use the methods: writeQ, writeAllQ, writelnQ, writelnAllQ
   /// to create quotation mark enclosed string literals
   /// (used e.g. in source code generators).
   ///
@@ -97,14 +95,15 @@ class QuoteBuffer extends StringBuffer {
   }
 }
 
-/// Defines string delimiters: SingleQuote and DoubleQuote.
-/// Used in [CodeBuffer] to specify string delimiters.
-class QuotationMark extends GenericEnum<String> {
+class _Enum {
+  const _Enum(this.value);
+  final String value;
+}
+
+/// Enumeration class allowing the user to choose between
+/// quotation mark delimiters.
+class QuotationMark extends _Enum {
   const QuotationMark._(String value) : super(value);
-
-  /// The value of this instance is the single quotation mark character: <'>.
   static const Single = QuotationMark._('\'');
-
-  /// The value of this instance is the double quotation mark character: <">.
   static const Double = QuotationMark._('\"');
 }
