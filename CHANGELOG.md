@@ -25,3 +25,7 @@ Amended README.md.
 # 0.0.7
 
 Formatted method list in README.md.
+
+# 0.1.0
+
+Removed dependency on generic_enum.
