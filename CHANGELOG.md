@@ -29,3 +29,7 @@ Formatted method list in README.md.
 # 0.1.0
 
 Removed dependency on generic_enum.
+
+# 0.1.1
+
+`writelnAllQ()` now has two optional parameters.
