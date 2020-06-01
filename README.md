@@ -12,7 +12,8 @@ adding quoted strings to the buffer.
 
 ## Usage
 
-To use this library include [quote_buffer] as dependency in your `pubspec.yaml` file. The buffer can be configured to use escaped single or double quotation marks. The constructor parameter `delimiter` defaults
+To use this library include [quote_buffer] as dependency in your `pubspec.yaml` file.
+The buffer can be configured to use escaped single or double quotation marks. The constructor parameter `delimiter` defaults
 to `QuotationMark.Single`.
 ```Dart
 /// QuoteBuffer with escaped single quotation mark as string delimiter.
@@ -22,7 +23,8 @@ final bufferS = QuoteBuffer();
 final bufferD = QuoteBuffer(delimiter: QuotationMark.Double);
 ```
 
-The section below lists the methods provided for writing *quoted strings* to the buffer and shows the console output obtained by printing the buffer.
+The section below lists the methods provided for writing *quoted strings* to the
+buffer and shows the console output obtained by printing the buffer.
 1. **writeQ**(Object obj)
 
     Writes *delimiter*, *obj*, *delimiter* to the buffer.
@@ -41,11 +43,12 @@ The section below lists the methods provided for writing *quoted strings* to the
     final bufferS = QuoteBuffer();
     bufferS.writelnQ('name');
     print(bufferS.toString()); // Console output below \/
+    print('--- ---');
     ```
     ```Console
     'name'
 
-
+    --- ---
     ```
 3. **writeAllQ**(Iterable objects, [String separator])
 
@@ -71,14 +74,15 @@ The section below lists the methods provided for writing *quoted strings* to the
       separator2 = ',',
     );
     print(bufferD.toString()); // Console output below \/
+    print('--- ---');
     ```
     ```Console
-    "one #",
-    "two #",
-    "three #",
-    "four"
+     "one #",
+     "two #",
+     "three #",
+     "four"
 
-
+     --- ---
     ```
 
 ## Examples
