@@ -2,13 +2,13 @@ import 'package:test/test.dart';
 import 'package:quote_buffer/quote_buffer.dart';
 
 void main() {
-  group('Testing writeQ():', () {
-    test('Quote string literal with double quote delimiters.', () {
+  group('writeQ():', () {
+    test('QuotationMark.Double', () {
       final cb = QuoteBuffer(delimiter: QuotationMark.Double);
       cb.writeQ('TableName');
       expect(cb.toString(), '\"TableName\"');
     });
-    test('Quoted string literal with single quote delimiters.', () {
+    test('QuotationMark.Single', () {
       final cb = QuoteBuffer(delimiter: QuotationMark.Single);
       cb.writeQ('TableName');
       expect(cb.toString(), '\'TableName\'');
@@ -16,56 +16,58 @@ void main() {
   });
 
   group('Testing writeAllQ():', () {
-    test('Quoted string literal with double quote delimiters.', () {
+    test('QuotationMark.Double', () {
       final cb = QuoteBuffer(delimiter: QuotationMark.Double);
       cb.writeAllQ(['TableName']);
       expect(cb.toString(), '\"TableName\"');
     });
-    test('Quoted string literal with single quote delimiters.', () {
+    test('QuotationMark.Single', () {
       final cb = QuoteBuffer(delimiter: QuotationMark.Single);
       cb.writeAllQ(['TableName']);
       expect(cb.toString(), '\'TableName\'');
     });
 
-    test('Strings separated by commas.', () {
+    test('Separator.', () {
       final cb = QuoteBuffer();
       cb.writeAllQ(['Column1', 'Column2'], ', ');
       expect(cb.toString(), '\'Column1, Column2\'');
     });
 
-    test('Joining two non-whitespace strings.', () {
+    test('Joining non-whitespace strings.', () {
       final cb = QuoteBuffer();
       cb.writeAllQ(['Column1', 'Column2']);
       expect(cb.toString(), '\'Column1Column2\'');
     });
 
-    test('Joining two whitespace strings.', () {
+    test('Joining whitespace strings.', () {
       final cb = QuoteBuffer();
       cb.writeAllQ([' ', '']);
       expect(cb.toString(), '\' \'');
     });
   });
 
-  group('Testing writelnQ():', () {
-    test('String literal terminated with a newline.', () {
+  group('writelnQ():', () {
+    test('QuotationMark.Double', () {
       final cb = QuoteBuffer(delimiter: QuotationMark.Double);
       cb.writelnQ('TableName');
       expect(cb.toString(), '\"TableName\"\n');
     });
   });
 
-  group('Testing writelnAllQ()', () {
-    test('Single string literal terminated with a newline.', () {
+  group('writelnAllQ()', () {
+    test('Single string literal.', () {
       final cb = QuoteBuffer();
       cb.writelnAllQ(['TableName']);
       expect(cb.toString(), '\'TableName\'\n');
     });
-    test(
-        'Two separate string literals, \n'
-        '\t\t\t each terminated with a newline character.', () {
+    test('Separators', () {
       final cb = QuoteBuffer();
-      cb.writelnAllQ(['TableName', 'ColumnName']);
-      expect(cb.toString(), '\'TableName\'\n' '\'ColumnName\'\n');
+      cb.writelnAllQ(
+        ['TableName', 'ColumnName'],
+        separator1: '#',
+        separator2: ',',
+      );
+      expect(cb.toString(), '\'TableName#\',\n' '\'ColumnName\'\n');
     });
   });
 }
