@@ -50,7 +50,7 @@ main() {
 /// Creates source code representing a field of type [String] and name 'init'.
 Field _init(
     {@required String tableName, @required Map<String, String> columnMap}) {
-  var buffer = QuoteBuffer();
+  var buffer = QuoteBuffer(delimiter: QuotationMark.Single);
   // Specify table name
   buffer.writelnQ('CREATE TABLE $tableName (');
   // Specify columns
@@ -61,7 +61,7 @@ Field _init(
   }
 
   // Add a separator and a newline symbol after each column specification.
-  buffer.writelnAllQ(columns, ',');
+  buffer.writelnAllQ(columns, separator1: ',');
 
   buffer.writelnQ(')');
 
