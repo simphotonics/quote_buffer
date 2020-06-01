@@ -15,17 +15,17 @@ adding quoted strings to the buffer.
 [QuoteBuffer] adds the following methods
 for writing quoted strings to the buffer:
 1. `writeQ(Object obj)`: Writes `delimiter`, `obj`, `delimiter` to the buffer.
-  ```Dart
-  ...
-  final buffer = QuoteBuffer();
-  buffer.writeQ(29);
-  print(buffer.toString());
-  ```
-  Console output:
-  ```Console
-  # dart example.dart
-  '29'
-  ```
+    ```Dart
+    ...
+    final buffer = QuoteBuffer();
+    buffer.writeQ(29);
+    print(buffer.toString());
+    ```
+    Console output:
+    ```Console
+    # dart example.dart
+    '29'
+    ```
 - `writelnQ(Object obj)`: Writes `delimiter`, `obj`, `delimiter`, `newline symbol` to the buffer.
   ```Dart
   ...
