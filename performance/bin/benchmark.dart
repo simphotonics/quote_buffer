@@ -18,7 +18,7 @@ class QuoteBufferBenchmark extends BenchmarkBase {
     cbuffer.writelnQ('Line of code');
     cbuffer.writeQ('Adding some more code');
     cbuffer.write('\n');
-    cbuffer.writelnAllQ(['one', 'two', 'three', 'four'], ',');
+    cbuffer.writelnAllQ(['one', 'two', 'three', 'four'], separator1: ',');
     cbuffer.writeAllQ(['one', 'two', 'three', 'four'], ',');
   }
 
