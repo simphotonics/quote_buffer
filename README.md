@@ -70,8 +70,8 @@ buffer and shows the console output obtained by printing the buffer.
     ```Dart
     bufferD.writelnAllQ(
       ['one','two','three','four'],
-      separator1 = ' #',
-      separator2 = ',',
+      separator1: ' #',
+      separator2: ',',
     );
     print(bufferD.toString()); // Console output below \/
     print('--- ---');

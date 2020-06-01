@@ -37,3 +37,7 @@ Removed dependency on generic_enum.
 # 0.1.2
 
 Amended README.md.
+
+# 0.1.3
+
+Amended README.md.
