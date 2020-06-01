@@ -36,7 +36,7 @@ The program compares the average runtime of the methods below:
     sbuffer.write('\'');
   }
 ```
-A typical output for a benchmark run on a machine with a Intel Core Dual i5-6260U CPU @ 1.80GHz is listed below:
+A typical console output for a benchmark run on a machine with a Intel Core Dual i5-6260U CPU @ 1.80GHz is listed below:
 
 ```Console
 This is the test string:
