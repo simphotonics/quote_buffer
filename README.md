@@ -27,7 +27,7 @@ The section below lists the methods provided for writing *quoted strings* to the
     ```Dart
     ...
     bufferS.writeQ(29);
-    print(bufferS.toString());
+    print(bufferS.toString()); // Console output below \/
     ```
     ```Console
     '29'
@@ -37,37 +37,34 @@ The section below lists the methods provided for writing *quoted strings* to the
   ...
   final bufferS = QuoteBuffer();
   bufferS.writelnQ('name');
-  print(bufferS.toString());
+  print(bufferS.toString()); // Console output below \/
   ```
   ```Console
   'name'
-  
+
 
   ```
 - `writeAllQ(Iterable\<Object\> objects,[String separator])`: Writes `delimiter`, sequence of `objects`, `delimiter` to the buffer.
   ```Dart
   ...
   bufferD.writeAllQ(['one','two','three','four'], ',');
-  print(buffer.toString());
+  print(buffer.toString()); // Console output below \/
   ```
-  Console output:
   ```Console
-  # dart example.dart
   "one, two, three, four"
   ```
 - `writelnAllQ(Iterable\<Object\> objects,{String separator1, String separator2})`: Writes `objects` in sequence: `delimiter`, `objects[0]`, `separator1`, `delimiter`, `separator2`, `newline symbol`, etc.
   ```Dart
   ...
   bufferD.writelnAllQ(['one','two','three','four'], separator1 = ' #', separator2 = ',');
-  print(bufferD.toString());
+  print(bufferD.toString()); // Console output below \/
   ```
-  Console output:
   ```Console
-  # dart example.dart
   "one #",
   "two #",
   "three #",
   "four"
+  
 
   ```
 
