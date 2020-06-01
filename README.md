@@ -41,6 +41,7 @@ The section below lists the methods provided for writing *quoted strings* to the
   ```
   ```Console
   'name'
+  
 
   ```
 - `writeAllQ(Iterable\<Object\> objects,[String separator])`: Writes `delimiter`, sequence of `objects`, `delimiter` to the buffer.
