@@ -3,7 +3,7 @@
 
 ## Benchmark
 
-To run the benchmark program, navigate to the folder *performance" in your downloaded
+To run the benchmark program, navigate to the folder *performance* in your downloaded
 copy of this library and use
 the following command:
 ```shell
