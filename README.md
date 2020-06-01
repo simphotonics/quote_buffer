@@ -12,38 +12,41 @@ adding quoted strings to the buffer.
 
 ## Usage
 
-[QuoteBuffer] adds the following methods
-for writing quoted strings to the buffer:
+To use this library include [quote_buffer] as dependency in your `pubspec.yaml` file. The buffer can be configured to use single or double quotation marks. The constructor parameter `delimiter` defaults
+to `QuotationMark.Single`.
+```Dart
+/// QuoteBuffer with single quotation mark as string delimiter.
+final bufferS = QuoteBuffer();
+
+/// QuoteBuffer with double quotation mark as string delimiter.
+final bufferD = QuoteBuffer(delimiter: QuotationMark.Double);
+```
+
+The section below lists the methods provided for writing *quoted strings* to the buffer and shows the console output obtained by printing the buffer.
 1. `writeQ(Object obj)`: Writes `delimiter`, `obj`, `delimiter` to the buffer.
     ```Dart
     ...
-    final buffer = QuoteBuffer();
-    buffer.writeQ(29);
-    print(buffer.toString());
+    bufferS.writeQ(29);
+    print(bufferS.toString());
     ```
-    Console output:
     ```Console
-    # dart example.dart
     '29'
     ```
 - `writelnQ(Object obj)`: Writes `delimiter`, `obj`, `delimiter`, `newline symbol` to the buffer.
   ```Dart
   ...
-  final buffer = QuoteBuffer();
-  buffer.writelnQ('name');
-  print(buffer.toString());
+  final bufferS = QuoteBuffer();
+  bufferS.writelnQ('name');
+  print(bufferS.toString());
   ```
-  Console output:
   ```Console
-  # dart example.dart
   'name'
 
   ```
 - `writeAllQ(Iterable\<Object\> objects,[String separator])`: Writes `delimiter`, sequence of `objects`, `delimiter` to the buffer.
   ```Dart
   ...
-  final buffer = QuoteBuffer(delimiter: QuotationMark.Double);
-  buffer.writeAllQ(['one','two','three','four'], ',');
+  bufferD.writeAllQ(['one','two','three','four'], ',');
   print(buffer.toString());
   ```
   Console output:
@@ -54,9 +57,8 @@ for writing quoted strings to the buffer:
 - `writelnAllQ(Iterable\<Object\> objects,{String separator1, String separator2})`: Writes `objects` in sequence: `delimiter`, `objects[0]`, `separator1`, `delimiter`, `separator2`, `newline symbol`, etc.
   ```Dart
   ...
-  final buffer = QuoteBuffer(delimiter: QuotationMark.Double);
-  buffer.writelnAllQ(['one','two','three','four'], separator1 = ' #', separator2 = ',');
-  print(buffer.toString());
+  bufferD.writelnAllQ(['one','two','three','four'], separator1 = ' #', separator2 = ',');
+  print(bufferD.toString());
   ```
   Console output:
   ```Console
