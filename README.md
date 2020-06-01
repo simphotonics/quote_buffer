@@ -23,7 +23,8 @@ final bufferD = QuoteBuffer(delimiter: QuotationMark.Double);
 ```
 
 The section below lists the methods provided for writing *quoted strings* to the buffer and shows the console output obtained by printing the buffer.
-1. **writeQ**(Object obj): Writes *delimiter*, *obj*, *delimiter* to the buffer.
+1. **writeQ**(Object obj)
+  Writes *delimiter*, *obj*, *delimiter* to the buffer.
     ```Dart
     bufferS.writeQ(29);
     print(bufferS.toString()); // Console output below \/
@@ -31,7 +32,8 @@ The section below lists the methods provided for writing *quoted strings* to the
     ```Console
     '29'
     ```
-2. **writelnQ**(Object obj): Writes *delimiter*, *obj*, *delimiter*, *newline symbol*to the buffer.
+2. **writelnQ**(Object obj)
+  Writes *delimiter*, *obj*, *delimiter*, *newline symbol* to the buffer.
     ```Dart
     final bufferS = QuoteBuffer();
     bufferS.writelnQ('name');
@@ -42,7 +44,8 @@ The section below lists the methods provided for writing *quoted strings* to the
 
 
     ```
-3. **writeAllQ**(Iterable objects,[String separator]): Writes *delimiter*, sequence of *objects*, *delimiter* to the buffer.
+3. **writeAllQ**(Iterable objects,[String separator])
+  Writes *delimiter*, sequence of *objects*, *delimiter* to the buffer.
     ```Dart
     bufferD.writeAllQ(['one','two','three','four'], ',');
     print(buffer.toString()); // Console output below \/
@@ -50,7 +53,8 @@ The section below lists the methods provided for writing *quoted strings* to the
     ```Console
     "one, two, three, four"
     ```
-4 **writelnAllQ**(Iterable objects,{String separator1, String separator2}): Writes *objects* in sequence: *delimiter*, *objects[0]*, *separator1*, *delimiter*, *separator2*, *newline symbol*, etc.
+4. **writelnAllQ**(Iterable objects,{String separator1, String separator2})
+  Writes *objects* in sequence: *delimiter*, *objects[0]*, *separator1*, *delimiter*, *separator2*, *newline symbol*, etc.
     ```Dart
     bufferD.writelnAllQ(['one','two','three','four'], separator1 = ' #',   separator2 = ',');
     print(bufferD.toString()); // Console output below \/
