@@ -37,7 +37,8 @@ The program compares the average runtime of the methods below:
   }
 ```
 A typical output for a benchmark run on a machine with a Intel Core Dual i5-6260U CPU @ 1.80GHz is listed below:
-```
+
+```Console
 This is the test string:
 'Line of code'
 'Adding some more code'
@@ -47,16 +48,19 @@ This is the test string:
 'four'
 'one,two,three,four'
 
+
 Asserting both classes add the same string:
 Passed
 
 Running StringBuffer Benchmark ...
-Added string 2255589 times.
-StringBuffer(RunTime): 9.09316832313386 us.
+
+Added string 2225086 times.
+StringBuffer(RunTime): 9.219186038471644 us.
 
 Running QuoteBuffer Benchmark ...
-Added string 1856154 times.
-QuoteBuffer(RunTime): 11.203545920510882 us.
+Added string 1932929 times.
+QuoteBuffer(RunTime): 10.750438575314245 us.
+
 ```
 
 
