@@ -33,3 +33,7 @@ Removed dependency on generic_enum.
 # 0.1.1
 
 `writelnAllQ()` now has two optional parameters.
+
+# 0.1.2
+
+Amended README.md.
