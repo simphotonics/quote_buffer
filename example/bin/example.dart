@@ -1,3 +1,4 @@
+import 'package:ansicolor/ansicolor.dart';
 import 'package:quote_buffer/quote_buffer.dart';
 
 // To run this program go to the folder 'quote_buffer/example'
@@ -10,55 +11,40 @@ main(List<String> args) {
   List<String> strings = ['one', 'two', 'three', 'four'];
   strings.addAll(args);
 
+  AnsiPen green = AnsiPen()..green(bold: true);
+  AnsiPen blue = AnsiPen()..blue(bold: true);
   var buffer = QuoteBuffer();
 
   // Adds:'\'1\'' (Note: Objects are first converted to strings.)
-  buffer.writeQ(1);
-
-  // Adds a new line
-  buffer.writeln('');
+  print(green('buffer.writeQ(29);'));
+  buffer.writeQ(29);
+  print(buffer.toString());
+  buffer.clear();
 
   // Adds:'\'name\'\n'
+  print(green('buffer.writelnQ(\'name\');'));
   buffer.writelnQ('name');
-
-  // Adds:'\'one,two,three,four\''
-  buffer.writeAllQ(strings, ',');
-
-  // Adds a new line
-  buffer.writeln('');
-
-  // Adds:'\'======\'\n'
-  buffer.writelnQ('======');
-
-  // Adds:
-  // '\'one\';\n'
-  // '\'two\';\n'
-  // '\'three\';\n''
-  // '\'four\'\n'
-  buffer.writelnAllQ(strings, ';');
-
-  // Prints:
-  // 'name'
-  // 'one,two,three,four'
-  // '======'
-  // 'one';
-  // 'two';
-  // 'three';
-  // 'four'
   print(buffer.toString());
+  buffer.clear();
 
   buffer = QuoteBuffer(
     delimiter: QuotationMark.Double,
   );
-
-  // Adds:
-  // '\"one\"'
-  // '\"two\"'
-  // '\"three\"'
-  // '\"four\"'
   buffer.writeAllQ(strings, ',');
 
   // Prints:
   // "one,two,three,four"
+  print(blue('final buffer = QuoteBuffer('
+      'delimiter: QuotationMark.Double,'
+      '); '));
+      
+  print(green('buffer.writeAllQ([\'one\',\'two\',\'three\',\'four\'],\',\');'));
+  print(buffer.toString());
+  buffer.clear();
+
+  print(green(
+    'buffer.writelnAllQ([\'one\',\'two\',\'three\',\'four\'], separator1: \'#\', separator2: \',\');',
+  ));
+  buffer.writelnAllQ(strings, separator1: '#', separator2: ',');
   print(buffer.toString());
 }
