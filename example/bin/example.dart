@@ -37,7 +37,7 @@ main(List<String> args) {
   print(blue('final buffer = QuoteBuffer('
       'delimiter: QuotationMark.Double,'
       '); '));
-      
+
   print(green('buffer.writeAllQ([\'one\',\'two\',\'three\',\'four\'],\',\');'));
   print(buffer.toString());
   buffer.clear();
