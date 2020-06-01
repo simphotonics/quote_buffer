@@ -23,7 +23,7 @@ final bufferD = QuoteBuffer(delimiter: QuotationMark.Double);
 ```
 
 The section below lists the methods provided for writing *quoted strings* to the buffer and shows the console output obtained by printing the buffer.
-1. **writeQ**(Object obj)
+1. `writeQ(Object obj)`
 
     Writes *delimiter*, *obj*, *delimiter* to the buffer.
     ```Dart
