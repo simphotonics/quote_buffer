@@ -15,6 +15,7 @@ adding quoted strings to the buffer.
 To use this library include [quote_buffer] as dependency in your `pubspec.yaml` file.
 The section below lists the methods provided for writing *quoted strings* to the
 buffer and shows the console output obtained by printing the buffer content.
+It is assumed that `buffer` is an instance of `StringBuffer`.
 1. **writeQ**(Object obj, {QuotationMark delimiter})
 
     Writes *delimiter*, *obj*, *delimiter* to the buffer.
@@ -44,7 +45,7 @@ buffer and shows the console output obtained by printing the buffer content.
 
     Writes *delimiter*, sequence of *objects*, *delimiter* to the buffer.
     ```Dart
-    buffer..writeAllQ(
+    buffer.writeAllQ(
       ['one','two','three','four'],
        separator: ',',
     );
@@ -58,13 +59,13 @@ buffer and shows the console output obtained by printing the buffer content.
 
     Writes *objects* in sequence: *delimiter*, *objects[0]*, *separator1*, *delimiter*, *separator2*, *newline symbol*, etc.
     ```Dart
-    buffer..writelnAllQ(
+    buffer.writelnAllQ(
       ['one','two','three','four'],
       separator1: ' #',
       separator2: ',',
       delimiter: QuotationMark.DOUBLE,
     );
-    print(buffer..toString()); // Console output below \/
+    print(buffer.toString()); // Console output below \/
     print('--- ---');
     ```
     ```Console
