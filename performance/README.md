@@ -1,7 +1,5 @@
-# Quote Buffer
-
-
-## Benchmark
+## Quote Buffer - Benchmark
+[![Build Status](https://travis-ci.com/simphotonics/quote_buffer.svg?branch=master)](https://travis-ci.com/simphotonics/quote_buffer)
 
 To run the benchmark program, navigate to the folder *performance* in your downloaded
 copy of this library and use
