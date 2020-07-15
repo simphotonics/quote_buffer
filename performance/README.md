@@ -7,62 +7,38 @@ To run the benchmark program, navigate to the folder *performance* in your downl
 copy of this library and use
 the following command:
 ```shell
-# dart benchmark.dart
+# dart bin/benchmark.dart
 ```
 
 The program compares the average runtime of the methods below:
 ```Dart
-/// The code string buffer benchmark code.
-  @override
-  void runQSB() {
-    cbuffer.writelnQ('Line of code');
-    cbuffer.writeQ('Adding some more code');
-    cbuffer.write('\n');
-    cbuffer.writelnAllQ(['one', 'two', 'three', 'four'], ',');
-    cbuffer.writeAllQ(['one', 'two', 'three', 'four'], ',');
+/// The benchmark code.
+@override
+void run() {
+  buffer.writelnQ('Line of strings');
+  buffer.writeQ('Adding some more strings');
+  buffer.write('\n');
+  buffer.writelnAllQ(['one', 'two', 'three', 'four'], separator1: ',');
+  buffer.writeAllQ(['one', 'two', 'three', 'four'], separator: ',');
+}
+...
+
+/// The string buffer benchmark code.
+@override
+void run() {
+  buffer.writeln('\'Line of strings\'');
+  buffer.write('\'Adding some more strings inline\'');
+  buffer.write('\n');
+  for (var item in ['one', 'two', 'three', 'four']) {
+    buffer.writeln('\'$item,\'');
   }
-
-  /// The string buffer benchmark code.
-  @override
-  void runSB() {
-    sbuffer.writeln('\'Line of strings\'');
-    sbuffer.write('\'Adding some more strings inline\'');
-    sbuffer.write('\n');
-    for (var item in ['one', 'two', 'three', 'four']) {
-      sbuffer.writeln('\'$item,\'');
-    }
-    sbuffer.write('\'');
-    sbuffer.writeAll(['one', 'two', 'three', 'four'], ',');
-    sbuffer.write('\'');
-  }
+  buffer.write('\'');
+  buffer.writeAll(['one', 'two', 'three', 'four'], ',');
+  buffer.write('\'');
+}
 ```
-A typical console output for a benchmark run on a machine with a Intel Core Dual i5-6260U CPU @ 1.80GHz is listed below:
-
-```Console
-This is the test string:
-'Line of code'
-'Adding some more code'
-'one,'
-'two,'
-'three,'
-'four'
-'one,two,three,four'
-
-
-Asserting both classes add the same string:
-Passed
-
-Running StringBuffer Benchmark ...
-
-Added string 2225086 times.
-StringBuffer(RunTime): 9.219186038471644 us.
-
-Running QuoteBuffer Benchmark ...
-Added string 1932929 times.
-QuoteBuffer(RunTime): 10.750438575314245 us.
-
-```
-
+A typical console output for a benchmark run on a machine with a Intel Core Dual i5-6260U CPU @ 1.80GHz is shown below:
+![Console Output](https://raw.githubusercontent.com/simphotonics/quote_buffer/master/images/console_output_benchmark.svg?sanitize=true)
 
 
 ## Features and bugs
