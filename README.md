@@ -89,3 +89,4 @@ Please file feature requests and bugs at the [issue tracker].
 [example]: example
 [quote_buffer]: https://pub.dev/packages/quote_buffer
 [Quote]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote.html
+[StringBuffer]: https://api.dart.dev/stable/2.8.4/dart-core/StringBuffer-class.html
