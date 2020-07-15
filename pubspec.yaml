@@ -1,11 +1,10 @@
 name: quote_buffer
 description:
-  Extension on StringBuffer providing methods for adding
-  strings whose content is delimited by escaped quotation marks
-  to the buffer.
+  Extension on StringBuffer that simplifies transforming single objects and lists of objects
+  into quoted strings.
 
 
-version: 0.1.4
+version: 0.1.6
 homepage: https://github.com/simphotonics/quote_buffer
 
 environment:
