@@ -4,70 +4,73 @@ import 'package:quote_buffer/quote_buffer.dart';
 void main() {
   group('writeQ():', () {
     test('QuotationMark.Double', () {
-      final cb = QuoteBuffer(delimiter: QuotationMark.Double);
-      cb.writeQ('TableName');
-      expect(cb.toString(), '\"TableName\"');
+      final b = StringBuffer();
+      b.writeQ(
+        'TableName',
+        delimiter: QuotationMark.DOUBLE,
+      );
+      expect(b.toString(), '\"TableName\"');
     });
     test('QuotationMark.Single', () {
-      final cb = QuoteBuffer(delimiter: QuotationMark.Single);
-      cb.writeQ('TableName');
-      expect(cb.toString(), '\'TableName\'');
+      final b = StringBuffer();
+      b.writeQ('TableName');
+      expect(b.toString(), '\'TableName\'');
     });
   });
 
-  group('Testing writeAllQ():', () {
+  group('writeAllQ():', () {
     test('QuotationMark.Double', () {
-      final cb = QuoteBuffer(delimiter: QuotationMark.Double);
-      cb.writeAllQ(['TableName']);
-      expect(cb.toString(), '\"TableName\"');
+      final b = StringBuffer();
+      b.writeAllQ(['TableName'], delimiter: QuotationMark.DOUBLE);
+      expect(b.toString(), '\"TableName\"');
     });
     test('QuotationMark.Single', () {
-      final cb = QuoteBuffer(delimiter: QuotationMark.Single);
-      cb.writeAllQ(['TableName']);
-      expect(cb.toString(), '\'TableName\'');
+      final b = StringBuffer();
+      b.writeAllQ(['TableName']);
+      expect(b.toString(), '\'TableName\'');
     });
 
     test('Separator.', () {
-      final cb = QuoteBuffer();
-      cb.writeAllQ(['Column1', 'Column2'], ', ');
-      expect(cb.toString(), '\'Column1, Column2\'');
+      final b = StringBuffer();
+      b.writeAllQ(['Column1', 'Column2'], separator: ', ');
+      expect(b.toString(), '\'Column1, Column2\'');
     });
 
     test('Joining non-whitespace strings.', () {
-      final cb = QuoteBuffer();
-      cb.writeAllQ(['Column1', 'Column2']);
-      expect(cb.toString(), '\'Column1Column2\'');
+      final b = StringBuffer();
+      b.writeAllQ(['Column1', 'Column2']);
+      expect(b.toString(), '\'Column1Column2\'');
     });
 
     test('Joining whitespace strings.', () {
-      final cb = QuoteBuffer();
-      cb.writeAllQ([' ', '']);
-      expect(cb.toString(), '\' \'');
+      final b = StringBuffer();
+      b.writeAllQ([' ', '']);
+      expect(b.toString(), '\' \'');
     });
   });
 
   group('writelnQ():', () {
     test('QuotationMark.Double', () {
-      final cb = QuoteBuffer(delimiter: QuotationMark.Double);
-      cb.writelnQ('TableName');
-      expect(cb.toString(), '\"TableName\"\n');
+      final b = StringBuffer();
+      b.writelnQ('TableName', delimiter: QuotationMark.DOUBLE);
+      expect(b.toString(), '\"TableName\"\n');
     });
   });
 
   group('writelnAllQ()', () {
     test('Single string literal.', () {
-      final cb = QuoteBuffer();
-      cb.writelnAllQ(['TableName']);
-      expect(cb.toString(), '\'TableName\'\n');
+      final b = StringBuffer();
+      b.writelnAllQ(['TableName']);
+      expect(b.toString(), '\'TableName\'\n');
     });
     test('Separators', () {
-      final cb = QuoteBuffer();
-      cb.writelnAllQ(
+      final b = StringBuffer();
+      b.writelnAllQ(
         ['TableName', 'ColumnName'],
         separator1: '#',
         separator2: ',',
       );
-      expect(cb.toString(), '\'TableName#\',\n' '\'ColumnName\'\n');
+      expect(b.toString(), '\'TableName#\',\n' '\'ColumnName\'\n');
     });
   });
 }
