@@ -1,109 +1,67 @@
-import 'package:quote_buffer/quote_buffer.dart';
 import 'package:ansicolor/ansicolor.dart';
 import 'package:benchmark_harness/benchmark_harness.dart';
+import 'package:quote_buffer/quote_buffer.dart';
 
 // Create a new benchmark by extending BenchmarkBase
-class QuoteBufferBenchmark extends BenchmarkBase {
-  QuoteBufferBenchmark() : super('QuoteBuffer');
+class QuoteBenchmark extends BenchmarkBase {
+  QuoteBenchmark(String name) : super(name);
 
-  static void main() {
-    QuoteBufferBenchmark().report();
-  }
+  final buffer = StringBuffer();
+  final magenta = AnsiPen()..magenta(bold: true);
+  final green = AnsiPen()..green(bold: true);
+  final blue = AnsiPen()..blue(bold: true);
 
-  final cbuffer = QuoteBuffer();
+  int counter = 0;
 
   /// The benchmark code.
   @override
   void run() {
-    cbuffer.writelnQ('Line of code');
-    cbuffer.writeQ('Adding some more code');
-    cbuffer.write('\n');
-    cbuffer.writelnAllQ(['one', 'two', 'three', 'four'], separator1: ',');
-    cbuffer.writeAllQ(['one', 'two', 'three', 'four'], ',');
+    buffer.writelnQ('Line of strings');
+    buffer.writeQ('Adding some more strings');
+    buffer.write('\n');
+    buffer.writelnAllQ(['one', 'two', 'three', 'four'], separator1: ',');
+    buffer.writeAllQ(['one', 'two', 'three', 'four'], separator: ',');
+    ++counter;
   }
-
-  static String test() {
-    var bm = QuoteBufferBenchmark();
-    bm.run();
-    return bm.cbuffer.toString();
-  }
-
-  /// Not measured setup code executed prior to the benchmark runs.
-  @override
-  void setup() {}
 
   /// Not measures teardown code executed after the benchmark runs.
   @override
   void teardown() {
-    int no = cbuffer.length ~/ test().length;
-    AnsiPen magenta = new AnsiPen()..magenta(bold: true);
-    String number = magenta('$no');
-    print('Added string $number times.');
+    print(blue('\nRunning ${this.runtimeType}.'));
+    buffer.clear();
+    run();
+    --counter;
+    print('Added string: \n${green(buffer.toString())} \n '
+        '${magenta(counter.toString())} times.');
+    buffer.clear();
+    counter = 0;
   }
 }
 
 // Create a new benchmark by extending BenchmarkBase
-class StringBufferBenchmark extends BenchmarkBase {
-  StringBufferBenchmark() : super('StringBuffer');
-
-  final sbuffer = StringBuffer();
-
-  static void main() {
-    StringBufferBenchmark().report();
-  }
+class StringBufferBenchmark extends QuoteBenchmark {
+  StringBufferBenchmark(String name) : super(name);
 
   /// The string buffer benchmark code.
   @override
   void run() {
-    sbuffer.writeln('\'Line of strings\'');
-    sbuffer.write('\'Adding some more strings inline\'');
-    sbuffer.write('\n');
+    buffer.writeln('\'Line of strings\'');
+    buffer.write('\'Adding some more strings inline\'');
+    buffer.write('\n');
     for (var item in ['one', 'two', 'three', 'four']) {
-      sbuffer.writeln('\'$item,\'');
+      buffer.writeln('\'$item,\'');
     }
-    sbuffer.write('\'');
-    sbuffer.writeAll(['one', 'two', 'three', 'four'], ',');
-    sbuffer.write('\'');
-  }
-
-  static String test() {
-    var bm = StringBufferBenchmark();
-    bm.run();
-    return bm.sbuffer.toString();
-  }
-
-  /// Not measured setup code executed prior to the benchmark runs.
-  @override
-  void setup() {}
-
-  /// Not measures teardown code executed after the benchmark runs.
-  @override
-  void teardown() {
-    int no = sbuffer.length ~/ test().length;
-    AnsiPen magenta = new AnsiPen()..magenta(bold: true);
-    String number = magenta('$no');
-    print('Added string $number times.');
+    buffer.write('\'');
+    buffer.writeAll(['one', 'two', 'three', 'four'], ',');
+    buffer.write('\'');
+    ++counter;
   }
 }
 
 void main() {
-  AnsiPen green = AnsiPen()..green(bold: true);
-  AnsiPen blue = AnsiPen()..blue(bold: true);
-
-  print(blue('This is the test string:'));
-  print(QuoteBufferBenchmark.test());
-  print('\n');
-  print(blue('Asserting both classes add the same string:'));
-  assert(QuoteBufferBenchmark.test() == StringBufferBenchmark.test());
-  print(green('Passed\n'));
-
-  print(blue('Running StringBuffer Benchmark ...\n'));
-
-  // Run benchmark tests:
-  StringBufferBenchmark.main();
-
-  print(blue('\nRunning QuoteBuffer Benchmark ...'));
-  QuoteBufferBenchmark.main();
-
+  final q = QuoteBenchmark('QuoteBenchmark');
+  final s = StringBufferBenchmark('StringBufferBenchmark');
+  q.report();
+  s.report();
   print('\n');
 }
