@@ -3,12 +3,14 @@
 
 ## Introduction
 
-In the context of source code generation it is often required to generate strings that are
-enclosed by (escaped) quotation marks.
+In the context of source code generation it is required to enclose emitted strings with
+(escaped) quotation marks. In the following, such strings are called *quoted strings*.
+Manually delimiting strings with quotation marks is error-prone
+and repetitive especially when dealing with a collection of string-items.
 
-In the following such strings are called *quoted strings*. The package [`quote_buffer`][quote_buffer]
-provides [`Quote`][Quote] an extension on Dart's [`StringBuffer`][StringBuffer] that adds  methods for
-transforming single objects and lists of objects into quoted strings.
+The package [`quote_buffer`][quote_buffer] provides [`Quote`][Quote]
+an extension on Dart's [`StringBuffer`][StringBuffer] that adds  methods for
+transforming single objects and lists of objects into *quoted strings*.
 
 ## Usage
 
