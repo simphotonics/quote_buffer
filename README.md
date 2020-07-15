@@ -79,7 +79,7 @@ It is assumed that `buffer` is an instance of `StringBuffer`.
 
 ## Examples
 
-The examples located in the folder [example] show how to use the class [QuoteBuffer] to simplify the generation of string literals whose content is enclosed by escaped quotation marks. One of the programs demonstrates how to use [QuoteBuffer] in the context of code generation.
+The example located in the folder [example] shows how to use the extension [QuoteBuffer] to simplify the generation of string literals whose content is enclosed by escaped quotation marks.
 
 ## Features and bugs
 
