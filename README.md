@@ -7,30 +7,20 @@ In order to add a string literal to generated source code, it is required
 to create strings whose content is delimited by escaped quotation marks.
 
 In the following such strings are called *quoted strings*. [QuoteBuffer]
-extends Dart's `StringBuffer` by providing methods that simplify
+is an extension on Dart's `StringBuffer` and providing methods that simplify
 adding quoted strings to the buffer.
 
 ## Usage
 
 To use this library include [quote_buffer] as dependency in your `pubspec.yaml` file.
-The buffer can be configured to use escaped single or double quotation marks. The constructor parameter `delimiter` defaults
-to `QuotationMark.Single`.
-```Dart
-/// QuoteBuffer with escaped single quotation mark as string delimiter.
-final bufferS = QuoteBuffer();
-
-/// QuoteBuffer with escaped double quotation mark as string delimiter.
-final bufferD = QuoteBuffer(delimiter: QuotationMark.Double);
-```
-
 The section below lists the methods provided for writing *quoted strings* to the
-buffer and shows the console output obtained by printing the buffer.
+buffer and shows the console output obtained by printing the buffer content.
 1. **writeQ**(Object obj, {QuotationMark delimiter})
 
     Writes *delimiter*, *obj*, *delimiter* to the buffer.
     ```Dart
-    bufferS.writeQ(29);
-    print(bufferS.toString()); // Console output below \/
+    buffer.writeQ(29);
+    print(buffer.toString()); // Console output below \/
     ```
     ```Console
     '29'
@@ -41,8 +31,8 @@ buffer and shows the console output obtained by printing the buffer.
     Writes *delimiter*, *obj*, *delimiter*, *newline symbol* to the buffer.
     ```Dart
     final bufferS = QuoteBuffer();
-    bufferS.writelnQ('name', delimiter: QuotationMark.DOUBLE);
-    print(bufferS.toString()); // Console output below \/
+    buffer.writelnQ('name', delimiter: QuotationMark.DOUBLE);
+    print(buffer.toString()); // Console output below \/
     print('--- ---');
     ```
     ```Console
@@ -54,7 +44,7 @@ buffer and shows the console output obtained by printing the buffer.
 
     Writes *delimiter*, sequence of *objects*, *delimiter* to the buffer.
     ```Dart
-    bufferD.writeAllQ(
+    buffer..writeAllQ(
       ['one','two','three','four'],
        separator: ',',
     );
@@ -68,12 +58,13 @@ buffer and shows the console output obtained by printing the buffer.
 
     Writes *objects* in sequence: *delimiter*, *objects[0]*, *separator1*, *delimiter*, *separator2*, *newline symbol*, etc.
     ```Dart
-    bufferD.writelnAllQ(
+    buffer..writelnAllQ(
       ['one','two','three','four'],
       separator1: ' #',
       separator2: ',',
+      delimiter: QuotationMark.DOUBLE,
     );
-    print(bufferD.toString()); // Console output below \/
+    print(buffer..toString()); // Console output below \/
     print('--- ---');
     ```
     ```Console
