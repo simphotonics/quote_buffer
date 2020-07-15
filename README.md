@@ -7,7 +7,8 @@ In the context of source code generation it is often required to generate string
 enclosed by (escaped) quotation marks.
 
 In the following such strings are called *quoted strings*. The package [`quote_buffer`][quote_buffer]
-provides [`Quote`][Quote] an extension on Dart's [`StringBuffer`][StringBuffer] that adds  methods for adding quoted strings to the buffer.
+provides [`Quote`][Quote] an extension on Dart's [`StringBuffer`][StringBuffer] that adds  methods for
+transforming single objects and lists of objects into quoted strings.
 
 ## Usage
 
@@ -78,7 +79,7 @@ It is assumed that `buffer` is an instance of `StringBuffer`.
 
 ## Examples
 
-The example located in the folder [example] shows how to use the extension [QuoteBuffer] to simplify the generation of string literals whose content is enclosed by escaped quotation marks.
+The example located in the folder [example] shows how to use the extension [`Quote`][Quote] to simplify the generation of string literals whose content is enclosed by escaped quotation marks.
 
 ## Features and bugs
 
