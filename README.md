@@ -41,22 +41,22 @@ buffer and shows the console output obtained by printing the buffer.
     Writes *delimiter*, *obj*, *delimiter*, *newline symbol* to the buffer.
     ```Dart
     final bufferS = QuoteBuffer();
-    bufferS.writelnQ('name');
+    bufferS.writelnQ('name', delimiter: QuotationMark.DOUBLE);
     print(bufferS.toString()); // Console output below \/
     print('--- ---');
     ```
     ```Console
-    'name'
+    "name"
 
     --- ---
     ```
-3. **writeAllQ**(Iterable objects, [String separator])
+3. **writeAllQ**(Iterable objects, {String separator, QuotationMark delimiter})
 
     Writes *delimiter*, sequence of *objects*, *delimiter* to the buffer.
     ```Dart
     bufferD.writeAllQ(
       ['one','two','three','four'],
-       ',',
+       separator: ',',
     );
     print(buffer.toString()); // Console output below \/
     ```
@@ -64,7 +64,7 @@ buffer and shows the console output obtained by printing the buffer.
     "one, two, three, four"
     ```
 
-4. **writelnAllQ**(Iterable objects, {String separator1, String separator2})
+4. **writelnAllQ**(Iterable objects, {String separator1, String separator2, QuoationMark delimiter})
 
     Writes *objects* in sequence: *delimiter*, *objects[0]*, *separator1*, *delimiter*, *separator2*, *newline symbol*, etc.
     ```Dart
