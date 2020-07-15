@@ -1,5 +1,6 @@
-## Quote Buffer - Example
 [![Build Status](https://travis-ci.com/simphotonics/quote_buffer.svg?branch=master)](https://travis-ci.com/simphotonics/quote_buffer)
+
+## Quote Buffer - Example
 
 The example located in this folder show how to use the extension [`Quote`][Quote] to simplify the
 generation of string literals whose content is enclosed by escaped quotation marks.
