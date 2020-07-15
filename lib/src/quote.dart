@@ -118,7 +118,7 @@ extension Quote on StringBuffer {
 /// quotation mark delimiters.
 enum QuotationMark { SINGLE, DOUBLE }
 
-/// Extension providing the delimiter values.
+/// Extension on `QuotationMark` providing the delimiter string values.
 extension QuotationMarkBase on QuotationMark {
   String get baseValue {
     return const {
