@@ -1,3 +1,8 @@
+## 0.1.5
+
+Amended docs.
+
+
 ## 0.1.4
 
 Converted `quote_buffer` to a library that exports `quote`

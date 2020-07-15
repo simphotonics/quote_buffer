@@ -4,7 +4,7 @@ description:
   into quoted strings.
 
 
-version: 0.1.6
+version: 0.1.5
 homepage: https://github.com/simphotonics/quote_buffer
 
 environment:
