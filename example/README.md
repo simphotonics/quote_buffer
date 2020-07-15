@@ -70,3 +70,4 @@ main(List<String> args) {
 Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/quote_buffer/issues
+[Quote]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote.html

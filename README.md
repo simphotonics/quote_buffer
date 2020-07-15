@@ -3,12 +3,11 @@
 
 ## Introduction
 
-In order to add a string literal to generated source code, it is required
-to create strings whose content is delimited by escaped quotation marks.
+In the context of source code generation it is often required to generate strings that are
+enclosed by (escaped) quotation marks.
 
-In the following such strings are called *quoted strings*. [QuoteBuffer]
-is an extension on Dart's `StringBuffer` and providing methods that simplify
-adding quoted strings to the buffer.
+In the following such strings are called *quoted strings*. The package [`quote_buffer`][quote_buffer]
+provides [`Quote`][Quote] an extension on Dart's [`StringBuffer`][StringBuffer] that adds  methods for adding quoted strings to the buffer.
 
 ## Usage
 
@@ -86,7 +85,7 @@ The example located in the folder [example] shows how to use the extension [Quot
 Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/quote_buffer/issues
-[code_builder]: https://pub.dev/packages/code_builder
+
 [example]: example
-[QuoteBuffer]: https://pub.dev/packages/quote_buffer
 [quote_buffer]: https://pub.dev/packages/quote_buffer
+[Quote]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote.html
