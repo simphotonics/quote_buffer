@@ -34,7 +34,6 @@ extension Quote on StringBuffer {
         write(delimiter.stringValue);
       }
     }
-
   }
 
   /// Writes [objects] in sequence.
