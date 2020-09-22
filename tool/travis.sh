@@ -37,7 +37,7 @@ echo
 echo -e "${BLUE}=== Analyzing $PWD...${RESET}"
 echo
 
-dartanalyzer \
+dartanalyzer --enable-experiment=non-nullable\
     --fatal-warnings \
     --fatal-infos \
     --packages="$PWD/.packages" \
@@ -49,19 +49,16 @@ echo -e "${CYAN}=== Testing $PWD...${RESET}"
 echo
 
 # Only run if libary has test dependency
-grep -q test pubspec.yaml && \
-pub run test
+grep -q minimal_test pubspec.yaml && \
+pub run --enable-experiment=non-nullable minimal_test:minimal_test.dart
 
 
-# ==============================
-# Running examples and benchmark
-# ===============================
+# ================
+# Running examples
+# ================
 
-# Directories to be processed
-directories="example performance"
+echo
+echo -e "${GREEN}=== Running Example $PWD...${RESET}"
+echo
 
-for directory in $directories; do
-  cd $directory
-  ./tool/travis.sh
-  cd ..
-done
+dart --enable-experiment=non-nullable example/bin/example.dart
