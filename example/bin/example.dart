@@ -27,26 +27,30 @@ void main(List<String> args) {
   print(green('QuoteBuffer Extension - Example'));
 
   // Adds:'\'1\'' (Note: Objects are first converted to strings.)
-  print(blue('buffer.writeQ(29);') + ' // Adding quotation marks.');
+  print('// Adding quotation marks.');
+  print(blue('buffer.writeQ(29);'));
   buffer.writeQ(29);
   print(buffer.toString());
   buffer.clear();
 
   // Adds:'\'name\'\n'
+  print('// Adding double quotation marks and newline.');
   print(blue('buffer.writelnQ'
-      '(\'name\', delimiter: QuotationMark.DOUBLE);') + ' // Adding double quotation marks and newline.');
+      '(\'name\', delimiter: QuotationMark.DOUBLE);'));
   buffer.writelnQ('name', delimiter: QuotationMark.DOUBLE);
   print(buffer.toString());
   buffer.clear();
 
   // Prints:
   // "one,two,three,four"
+  print('// Adding separator and quotation marks.');
   buffer.writeAllQ(strings, separator: ', ');
   print(blue('buffer.writeAllQ'
       '([\'one\',\'two\',\'three\',\'four\'], separator: \', \');'));
   print(buffer.toString());
   buffer.clear();
 
+  print('// Adding separator1, quotation marks, newline.');
   print(blue(
     'buffer.writelnAllQ('
     '[\'one\',\'two\',\'three\',\'four\'], separator1: \'#\', separator2: \',\');',
