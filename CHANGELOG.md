@@ -1,5 +1,9 @@
 ## 0.2.0-nullsafety
 
+* Changed output format of method `writeAllQ()`.
+
+## 0.2.0-nullsafety
+
 * Added null-safety features.
 
 ## 0.1.5
