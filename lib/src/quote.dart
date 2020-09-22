@@ -16,7 +16,7 @@ extension Quote on StringBuffer {
   }) {
     var iterator = objects.iterator;
     if (!iterator.moveNext()) return;
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
     if (separator.isEmpty) {
       do {
         write(iterator.current);
@@ -28,7 +28,7 @@ extension Quote on StringBuffer {
         write(iterator.current);
       }
     }
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
   }
 
   /// Writes [objects] in sequence.
@@ -70,20 +70,23 @@ extension Quote on StringBuffer {
 
     if (separator1.isEmpty && separator2.isEmpty) {
       do {
-        writelnQ(iterator.current);
+        write(delimiter.stringValue);
+        write(iterator.current);
+        write(delimiter.stringValue);
+        write('\n');
       } while (iterator.moveNext());
     } else {
-      write(delimiter.baseValue);
+      write(delimiter.stringValue);
       write(iterator.current);
       while (iterator.moveNext()) {
         write(separator1);
-        write(delimiter.baseValue);
+        write(delimiter.stringValue);
         write(separator2);
         write('\n');
-        write(delimiter.baseValue);
+        write(delimiter.stringValue);
         write(iterator.current);
       }
-      write(delimiter.baseValue);
+      write(delimiter.stringValue);
       write('\n');
     }
   }
@@ -96,9 +99,9 @@ extension Quote on StringBuffer {
   }) {
     var string = '$obj';
     if (string.isEmpty) return;
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
     write(string);
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
   }
 
   /// Encloses [obj] with [delimiter]s, adds a newline
@@ -107,9 +110,9 @@ extension Quote on StringBuffer {
     Object object, {
     QuotationMark delimiter = QuotationMark.SINGLE,
   }) {
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
     write(object);
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
     write('\n');
   }
 }
@@ -120,10 +123,10 @@ enum QuotationMark { SINGLE, DOUBLE }
 
 /// Extension on `QuotationMark` providing the delimiter string values.
 extension QuotationMarkBase on QuotationMark {
-  String get baseValue {
+  String get stringValue {
     return const {
       QuotationMark.SINGLE: '\'',
       QuotationMark.DOUBLE: '"',
-    }[this];
+    }[this]!;
   }
 }
