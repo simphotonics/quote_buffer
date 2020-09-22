@@ -1,4 +1,4 @@
-import 'package:test/test.dart';
+import 'package:minimal_test/minimal_test.dart';
 import 'package:quote_buffer/quote_buffer.dart';
 
 void main() {
