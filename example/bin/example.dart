@@ -42,9 +42,9 @@ void main(List<String> args) {
   buffer.clear();
 
   // Prints:
-  // "one,two,three,four"
+  // 'one', 'two', 'three', 'four'
   print('// Adding separator and quotation marks.');
-  buffer.writeAllQ(strings, separator: ', ');
+  buffer.writeAllQ(strings);
   print(blue('buffer.writeAllQ'
       '([\'one\',\'two\',\'three\',\'four\'], separator: \', \');'));
   print(buffer.toString());

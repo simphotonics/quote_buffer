@@ -12,23 +12,29 @@ extension Quote on StringBuffer {
   void writeAllQ(
     Iterable objects, {
     QuotationMark delimiter = QuotationMark.SINGLE,
-    String separator = '',
+    String separator = ', ',
   }) {
     var iterator = objects.iterator;
     if (!iterator.moveNext()) return;
-    write(delimiter.stringValue);
+
     if (separator.isEmpty) {
       do {
+        write(delimiter.stringValue);
         write(iterator.current);
+        write(delimiter.stringValue);
       } while (iterator.moveNext());
     } else {
+      write(delimiter.stringValue);
       write(iterator.current);
+      write(delimiter.stringValue);
       while (iterator.moveNext()) {
         write(separator);
+        write(delimiter.stringValue);
         write(iterator.current);
+        write(delimiter.stringValue);
       }
     }
-    write(delimiter.stringValue);
+
   }
 
   /// Writes [objects] in sequence.
