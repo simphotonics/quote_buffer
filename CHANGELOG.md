@@ -1,3 +1,7 @@
+## 0.2.2-nullsafety
+
+- Min. SDK version now 2.10.0.
+
 ## 0.2.1-nullsafety
 
 * Changed output format of method `writeAllQ()`.
