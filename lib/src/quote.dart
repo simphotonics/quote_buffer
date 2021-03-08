@@ -1,14 +1,14 @@
 /// Extension on `StringBuffer` providing the methods:
 ///
-/// [writeQ], [writelnQ], [writeAllQ], [writelnAllQ].
+/// `writeQ`, `writelnQ`, `writeAllQ`, `writelnAllQ`.
 ///
 /// These methods convert objects
-/// to string literals enclosed by quotation marks
+/// to `String` literals enclosed by quotation marks
 /// before adding them to the string buffer.
 extension Quote on StringBuffer {
-  /// Writes [objects] in sequence adding an optional
-  /// [separator]. The resulting string is enclosed by
-  /// [delimiter]s.
+  /// Writes `objects` in sequence adding an optional
+  /// `separator`. The resulting string is enclosed by
+  /// `delimiter`.
   void writeAllQ(
     Iterable objects, {
     QuotationMark delimiter = QuotationMark.SINGLE,
@@ -36,7 +36,7 @@ extension Quote on StringBuffer {
     }
   }
 
-  /// Writes [objects] in sequence.
+  /// Writes `objects` in sequence.
   ///
   /// Each object is followed by an optional separator
   /// and a newline symbol.
@@ -58,11 +58,11 @@ extension Quote on StringBuffer {
     }
   }
 
-  /// Writes [objectes] in the sequence:
-  /// [delimiter], [object], [separator1], [delimiter], [separator2], newline.
+  /// Writes `objectes` in the sequence:
+  /// `delimiter`, `object`, `separator1`, `delimiter`, `separator2`, newline.
   ///
   /// Before each object a delimiter is inserted. The object is followed by
-  /// an optional [separator1] a [delimiter] an optional [separator2] and
+  /// an optional `separator1` a `delimiter` an optional `separator2` and
   /// a newline symbol.
   void writelnAllQ(
     Iterable objects, {
@@ -96,8 +96,8 @@ extension Quote on StringBuffer {
     }
   }
 
-  /// Encloses [obj] with [delimiter]s and writes
-  /// it to the buffer.
+  /// Encloses `obj` with `delimiter` and writes
+  /// the resulting `String` to the buffer.
   void writeQ(
     Object obj, {
     QuotationMark delimiter = QuotationMark.SINGLE,
@@ -109,8 +109,8 @@ extension Quote on StringBuffer {
     write(delimiter.stringValue);
   }
 
-  /// Encloses [obj] with [delimiter]s, adds a newline
-  /// symbol and adds it to the buffer.
+  /// Encloses `obj` with `delimiter`, adds a newline
+  /// symbol and adds the resulting `String` to the buffer.
   void writelnQ(
     Object object, {
     QuotationMark delimiter = QuotationMark.SINGLE,
