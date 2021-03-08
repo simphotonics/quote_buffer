@@ -1,3 +1,7 @@
+## 0.2.2
+
+- Switched to default test suite.
+
 ## 0.2.2-nullsafety
 
 - Min. SDK version now 2.10.0.
