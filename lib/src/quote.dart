@@ -1,37 +1,42 @@
 /// Extension on `StringBuffer` providing the methods:
 ///
-/// [writeQ], [writelnQ], [writeAllQ], [writelnAllQ].
+/// `writeQ`, `writelnQ`, `writeAllQ`, `writelnAllQ`.
 ///
 /// These methods convert objects
-/// to string literals enclosed by quotation marks
+/// to `String` literals enclosed by quotation marks
 /// before adding them to the string buffer.
 extension Quote on StringBuffer {
-  /// Writes [objects] in sequence adding an optional
-  /// [separator]. The resulting string is enclosed by
-  /// [delimiter]s.
+  /// Writes `objects` in sequence adding an optional
+  /// `separator`. The resulting string is enclosed by
+  /// `delimiter`.
   void writeAllQ(
     Iterable objects, {
     QuotationMark delimiter = QuotationMark.SINGLE,
-    String separator = '',
+    String separator = ', ',
   }) {
     var iterator = objects.iterator;
     if (!iterator.moveNext()) return;
-    write(delimiter.baseValue);
+
     if (separator.isEmpty) {
       do {
+        write(delimiter.stringValue);
         write(iterator.current);
+        write(delimiter.stringValue);
       } while (iterator.moveNext());
     } else {
+      write(delimiter.stringValue);
       write(iterator.current);
+      write(delimiter.stringValue);
       while (iterator.moveNext()) {
         write(separator);
+        write(delimiter.stringValue);
         write(iterator.current);
+        write(delimiter.stringValue);
       }
     }
-    write(delimiter.baseValue);
   }
 
-  /// Writes [objects] in sequence.
+  /// Writes `objects` in sequence.
   ///
   /// Each object is followed by an optional separator
   /// and a newline symbol.
@@ -53,11 +58,11 @@ extension Quote on StringBuffer {
     }
   }
 
-  /// Writes [objectes] in the sequence:
-  /// [delimiter], [object], [separator1], [delimiter], [separator2], newline.
+  /// Writes `objectes` in the sequence:
+  /// `delimiter`, `object`, `separator1`, `delimiter`, `separator2`, newline.
   ///
   /// Before each object a delimiter is inserted. The object is followed by
-  /// an optional [separator1] a [delimiter] an optional [separator2] and
+  /// an optional `separator1` a `delimiter` an optional `separator2` and
   /// a newline symbol.
   void writelnAllQ(
     Iterable objects, {
@@ -70,46 +75,49 @@ extension Quote on StringBuffer {
 
     if (separator1.isEmpty && separator2.isEmpty) {
       do {
-        writelnQ(iterator.current);
+        write(delimiter.stringValue);
+        write(iterator.current);
+        write(delimiter.stringValue);
+        write('\n');
       } while (iterator.moveNext());
     } else {
-      write(delimiter.baseValue);
+      write(delimiter.stringValue);
       write(iterator.current);
       while (iterator.moveNext()) {
         write(separator1);
-        write(delimiter.baseValue);
+        write(delimiter.stringValue);
         write(separator2);
         write('\n');
-        write(delimiter.baseValue);
+        write(delimiter.stringValue);
         write(iterator.current);
       }
-      write(delimiter.baseValue);
+      write(delimiter.stringValue);
       write('\n');
     }
   }
 
-  /// Encloses [obj] with [delimiter]s and writes
-  /// it to the buffer.
+  /// Encloses `obj` with `delimiter` and writes
+  /// the resulting `String` to the buffer.
   void writeQ(
     Object obj, {
     QuotationMark delimiter = QuotationMark.SINGLE,
   }) {
     var string = '$obj';
     if (string.isEmpty) return;
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
     write(string);
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
   }
 
-  /// Encloses [obj] with [delimiter]s, adds a newline
-  /// symbol and adds it to the buffer.
+  /// Encloses `obj` with `delimiter`, adds a newline
+  /// symbol and adds the resulting `String` to the buffer.
   void writelnQ(
     Object object, {
     QuotationMark delimiter = QuotationMark.SINGLE,
   }) {
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
     write(object);
-    write(delimiter.baseValue);
+    write(delimiter.stringValue);
     write('\n');
   }
 }
@@ -120,10 +128,10 @@ enum QuotationMark { SINGLE, DOUBLE }
 
 /// Extension on `QuotationMark` providing the delimiter string values.
 extension QuotationMarkBase on QuotationMark {
-  String get baseValue {
+  String get stringValue {
     return const {
       QuotationMark.SINGLE: '\'',
       QuotationMark.DOUBLE: '"',
-    }[this];
+    }[this]!;
   }
 }

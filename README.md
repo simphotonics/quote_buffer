@@ -45,16 +45,16 @@ It is assumed that `buffer` is an instance of `StringBuffer`.
     ```
 3. **writeAllQ**(Iterable objects, {String separator, QuotationMark delimiter})
 
-    Writes *delimiter*, sequence of *objects*, *delimiter* to the buffer.
+    Writes *delimiter*, *first object*, *delimiter*, etc. to the buffer.
     ```Dart
     buffer.writeAllQ(
       ['one','two','three','four'],
-       separator: ',',
+       separator: ', ',
     );
     print(buffer.toString()); // Console output below \/
     ```
     ```Console
-    "one, two, three, four"
+    'one', 'two', 'three', 'four'
     ```
 
 4. **writelnAllQ**(Iterable objects, {String separator1, String separator2, QuoationMark delimiter})

@@ -1,4 +1,5 @@
 import 'package:test/test.dart';
+
 import 'package:quote_buffer/quote_buffer.dart';
 
 void main() {
@@ -30,22 +31,22 @@ void main() {
       expect(b.toString(), '\'TableName\'');
     });
 
-    test('Separator.', () {
+    test('Separator:<, >', () {
       final b = StringBuffer();
       b.writeAllQ(['Column1', 'Column2'], separator: ', ');
-      expect(b.toString(), '\'Column1, Column2\'');
+      expect(b.toString(), '\'Column1\', \'Column2\'');
     });
 
     test('Joining non-whitespace strings.', () {
       final b = StringBuffer();
-      b.writeAllQ(['Column1', 'Column2']);
-      expect(b.toString(), '\'Column1Column2\'');
+      b.writeAllQ(['Column1', 'Column2'], separator: '');
+      expect(b.toString(), '\'Column1\'\'Column2\'');
     });
 
     test('Joining whitespace strings.', () {
       final b = StringBuffer();
-      b.writeAllQ([' ', '']);
-      expect(b.toString(), '\' \'');
+      b.writeAllQ([' ', ''], separator: '');
+      expect(b.toString(), '\' \'\'\'');
     });
   });
 

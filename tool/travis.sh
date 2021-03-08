@@ -49,19 +49,16 @@ echo -e "${CYAN}=== Testing $PWD...${RESET}"
 echo
 
 # Only run if libary has test dependency
-grep -q test pubspec.yaml && \
-pub run test
+grep -q minimal_test pubspec.yaml && \
+pub run test -r expanded --test-randomize-ordering-seed=random
 
 
-# ==============================
-# Running examples and benchmark
-# ===============================
+# ================
+# Running examples
+# ================
 
-# Directories to be processed
-directories="example performance"
+echo
+echo -e "${GREEN}=== Running Example $PWD...${RESET}"
+echo
 
-for directory in $directories; do
-  cd $directory
-  ./tool/travis.sh
-  cd ..
-done
+dart example/bin/example.dart
