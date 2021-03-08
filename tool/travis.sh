@@ -37,7 +37,7 @@ echo
 echo -e "${BLUE}=== Analyzing $PWD...${RESET}"
 echo
 
-dartanalyzer --enable-experiment=non-nullable\
+dartanalyzer \
     --fatal-warnings \
     --fatal-infos \
     --packages="$PWD/.packages" \
@@ -50,7 +50,7 @@ echo
 
 # Only run if libary has test dependency
 grep -q minimal_test pubspec.yaml && \
-pub run --enable-experiment=non-nullable minimal_test:minimal_test.dart
+pub run test -r expanded --test-randomize-ordering-seed=random
 
 
 # ================
@@ -61,4 +61,4 @@ echo
 echo -e "${GREEN}=== Running Example $PWD...${RESET}"
 echo
 
-dart --enable-experiment=non-nullable example/bin/example.dart
+dart example/bin/example.dart
