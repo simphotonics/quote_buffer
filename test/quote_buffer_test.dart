@@ -8,7 +8,7 @@ void main() {
       final b = StringBuffer();
       b.writeQ(
         'TableName',
-        delimiter: QuotationMark.DOUBLE,
+        delimiter: Punctuation.doubleQuotationMark,
       );
       expect(b.toString(), '\"TableName\"');
     });
@@ -22,7 +22,7 @@ void main() {
   group('writeAllQ():', () {
     test('QuotationMark.Double', () {
       final b = StringBuffer();
-      b.writeAllQ(['TableName'], delimiter: QuotationMark.DOUBLE);
+      b.writeAllQ(['TableName'], delimiter: Punctuation.doubleQuotationMark);
       expect(b.toString(), '\"TableName\"');
     });
     test('QuotationMark.Single', () {
@@ -53,7 +53,7 @@ void main() {
   group('writelnQ():', () {
     test('QuotationMark.Double', () {
       final b = StringBuffer();
-      b.writelnQ('TableName', delimiter: QuotationMark.DOUBLE);
+      b.writelnQ('TableName', delimiter: Punctuation.doubleQuotationMark);
       expect(b.toString(), '\"TableName\"\n');
     });
   });
