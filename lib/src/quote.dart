@@ -1,17 +1,21 @@
-/// Extension on `StringBuffer` providing the methods:
-///
-/// `writeQ`, `writelnQ`, `writeAllQ`, `writelnAllQ`.
-///
-/// These methods convert objects
-/// to `String` literals enclosed by quotation marks
-/// before adding them to the string buffer.
+/// Extension on [StringBuffer] providing
+/// methods for convering objects
+/// to [String] literals enclosed by quotation marks.
 extension Quote on StringBuffer {
-  /// Writes `objects` in sequence adding an optional
-  /// `separator`. The resulting string is enclosed by
-  /// `delimiter`.
+  /// Writes `objects` in sequence to the buffer.
+  /// * `delimiter`: Each object is enclosed with escaped quotation marks
+  /// specified by `delimiter`.
+  /// * `separator`: Optional separator [String].
+  ///
+  /// Usage:
+  /// ```
+  /// final b = StringBuffer();
+  /// b.writeAllQ([1, 2, 3], separator: ', ');
+  /// b.toString() == '\'1\', \'2\', \'3\'';
+  /// ```
   void writeAllQ(
     Iterable objects, {
-    QuotationMark delimiter = QuotationMark.SINGLE,
+    Punctuation delimiter = Punctuation.singleQuotationMark,
     String separator = ', ',
   }) {
     var iterator = objects.iterator;
@@ -19,27 +23,36 @@ extension Quote on StringBuffer {
 
     if (separator.isEmpty) {
       do {
-        write(delimiter.stringValue);
+        write(delimiter.value);
         write(iterator.current);
-        write(delimiter.stringValue);
+        write(delimiter.value);
       } while (iterator.moveNext());
     } else {
-      write(delimiter.stringValue);
+      write(delimiter.value);
       write(iterator.current);
-      write(delimiter.stringValue);
+      write(delimiter.value);
       while (iterator.moveNext()) {
         write(separator);
-        write(delimiter.stringValue);
+        write(delimiter.value);
         write(iterator.current);
-        write(delimiter.stringValue);
+        write(delimiter.value);
       }
     }
   }
 
-  /// Writes `objects` in sequence.
+  /// Writes `objects` in sequence to the buffer.
   ///
-  /// Each object is followed by an optional separator
+  /// Each object is followed by an optional `separator`
   /// and a newline symbol.
+  ///
+  /// Usage
+  /// ```
+  /// final b = StringBuffer();
+  /// b.writeAllQ([1, 2, 3], ',');
+  /// b.toString() == '1,\n'
+  ///                 '2,\n'
+  ///                 '3\n\'
+  /// ```
   void writelnAll(Iterable objects, [String separator = '']) {
     var iterator = objects.iterator;
     if (!iterator.moveNext()) return;
@@ -58,40 +71,47 @@ extension Quote on StringBuffer {
     }
   }
 
-  /// Writes `objectes` in the sequence:
-  /// `delimiter`, `object`, `separator1`, `delimiter`, `separator2`, newline.
+  /// Writes `objects` in sequence to the buffer.
+  /// * `delimiter`: Each object is followed by `separator1`
+  /// and enclosed with escaped quotation marks
+  /// specified by `delimiter`.
+  /// * `separator1`: Optional separator [String].
+  /// * `separator2`: Optional separator [String].
   ///
-  /// Before each object a delimiter is inserted. The object is followed by
-  /// an optional `separator1` a `delimiter` an optional `separator2` and
-  /// a newline symbol.
+  /// Usage:
+  /// final b = StringBuffer();
+  /// b.writelnAllQ([1, 2, 3], separator1: ',', separator2: ';');
+  /// b.toString() == '\'1,\';\n'
+  ///                 '\'2,\';\n'
+  ///                 '\'3\'\n'
   void writelnAllQ(
     Iterable objects, {
     String separator1 = '',
     String separator2 = '',
-    QuotationMark delimiter = QuotationMark.SINGLE,
+    Punctuation delimiter = Punctuation.singleQuotationMark,
   }) {
     var iterator = objects.iterator;
     if (!iterator.moveNext()) return;
 
     if (separator1.isEmpty && separator2.isEmpty) {
       do {
-        write(delimiter.stringValue);
+        write(delimiter.value);
         write(iterator.current);
-        write(delimiter.stringValue);
+        write(delimiter.value);
         write('\n');
       } while (iterator.moveNext());
     } else {
-      write(delimiter.stringValue);
+      write(delimiter.value);
       write(iterator.current);
       while (iterator.moveNext()) {
         write(separator1);
-        write(delimiter.stringValue);
+        write(delimiter.value);
         write(separator2);
         write('\n');
-        write(delimiter.stringValue);
+        write(delimiter.value);
         write(iterator.current);
       }
-      write(delimiter.stringValue);
+      write(delimiter.value);
       write('\n');
     }
   }
@@ -100,38 +120,45 @@ extension Quote on StringBuffer {
   /// the resulting `String` to the buffer.
   void writeQ(
     Object obj, {
-    QuotationMark delimiter = QuotationMark.SINGLE,
+    Punctuation delimiter = Punctuation.singleQuotationMark,
   }) {
     var string = '$obj';
     if (string.isEmpty) return;
-    write(delimiter.stringValue);
+    write(delimiter.value);
     write(string);
-    write(delimiter.stringValue);
+    write(delimiter.value);
   }
 
   /// Encloses `obj` with `delimiter`, adds a newline
   /// symbol and adds the resulting `String` to the buffer.
+  ///
+  /// Usage:
+  /// ```
+  /// final b = StringBuffer();
+  /// b.writeQ(1);
+  /// b.toString() == '\'1\'\n'
+  /// ```
   void writelnQ(
     Object object, {
-    QuotationMark delimiter = QuotationMark.SINGLE,
+    Punctuation delimiter = Punctuation.singleQuotationMark,
   }) {
-    write(delimiter.stringValue);
+    write(delimiter.value);
     write(object);
-    write(delimiter.stringValue);
+    write(delimiter.value);
     write('\n');
   }
 }
 
 /// Enumeration allowing the user to choose between
 /// quotation mark delimiters.
-enum QuotationMark { SINGLE, DOUBLE }
+enum Punctuation { singleQuotationMark, doubleQuotationMark }
 
-/// Extension on `QuotationMark` providing the delimiter string values.
-extension QuotationMarkBase on QuotationMark {
-  String get stringValue {
+/// Extension on [Punctuation] providing the delimiter string values.
+extension PunctuationValueMap on Punctuation {
+  String get value {
     return const {
-      QuotationMark.SINGLE: '\'',
-      QuotationMark.DOUBLE: '"',
+      Punctuation.singleQuotationMark: '\'',
+      Punctuation.doubleQuotationMark: '\"',
     }[this]!;
   }
 }

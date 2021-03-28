@@ -1,9 +1,6 @@
-/// Provides an `extension` on `StringBuffer` adding the methods
-/// * `writeQ`,
-/// * `writelnQ`,
-/// * `writeAllQ`,
-/// * `writelnAllQ`,
-/// * `writelnAll`.
+/// Provides an extension on [StringBuffer] with
+/// methods for converting objects to String literals enclosed by quotation
+/// marks.
 library quote_buffer;
 
 export 'src/quote.dart';
