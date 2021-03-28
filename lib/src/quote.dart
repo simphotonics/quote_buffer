@@ -5,7 +5,7 @@ extension Quote on StringBuffer {
   /// Writes `objects` in sequence to the buffer.
   /// * `delimiter`: Each object is enclosed with escaped quotation marks
   /// specified by `delimiter`.
-  /// * `separator`: Optional separator [String].
+  /// * `separator`: Optional separator `String`.
   ///
   /// Usage:
   /// ```
@@ -75,8 +75,8 @@ extension Quote on StringBuffer {
   /// * `delimiter`: Each object is followed by `separator1`
   /// and enclosed with escaped quotation marks
   /// specified by `delimiter`.
-  /// * `separator1`: Optional separator [String].
-  /// * `separator2`: Optional separator [String].
+  /// * `separator1`: Optional separator `String`.
+  /// * `separator2`: Optional separator `String`.
   ///
   /// Usage:
   /// final b = StringBuffer();
