@@ -14,10 +14,10 @@ transforming single objects and lists of objects into *quoted strings*.
 
 ## Usage
 
-To use this library include [quote_buffer] as dependency in your `pubspec.yaml` file.
-The section below lists the methods provided for writing *quoted strings* to the
-buffer and shows the console output obtained by printing the buffer content.
-It is assumed that `buffer` is an instance of `StringBuffer`.
+To use this library include [`quote_buffer`][quote_buffer] as dependency in your `pubspec.yaml` file.
+The section below lists the methods provided
+and shows the console output obtained by printing the buffer content.
+It is assumed that `buffer` is an instance of [`StringBuffer`][StringBuffer].
 1. **writeQ**(Object obj, {QuotationMark delimiter})
 
     Writes *delimiter*, *obj*, *delimiter* to the buffer.
