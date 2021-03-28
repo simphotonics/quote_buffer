@@ -1,5 +1,5 @@
 # Quote Buffer
-[![Build Status](https://travis-ci.com/simphotonics/quote_buffer.svg?branch=master)](https://travis-ci.com/simphotonics/quote_buffer)
+[![Dart](https://github.com/simphotonics/quote_buffer/actions/workflows/dart.yml/badge.svg)](https://github.com/simphotonics/quote_buffer/actions/workflows/dart.yml)
 
 ## Introduction
 
@@ -23,7 +23,8 @@ It is assumed that `buffer` is an instance of `StringBuffer`.
     Writes *delimiter*, *obj*, *delimiter* to the buffer.
     ```Dart
     buffer.writeQ(29);
-    print(buffer.toString()); // Console output below \/
+    expect(buffer.toString(),'\'29\'');
+    print(buffer.toString()); // Console output below
     ```
     ```Console
     '29'
@@ -35,7 +36,8 @@ It is assumed that `buffer` is an instance of `StringBuffer`.
     ```Dart
     final bufferS = QuoteBuffer();
     buffer.writelnQ('name', delimiter: QuotationMark.DOUBLE);
-    print(buffer.toString()); // Console output below \/
+    expect(buffer.toString(), '\"name\"\n');
+    print(buffer.toString()); // Console output below
     print('--- ---');
     ```
     ```Console
@@ -48,13 +50,14 @@ It is assumed that `buffer` is an instance of `StringBuffer`.
     Writes *delimiter*, *first object*, *delimiter*, etc. to the buffer.
     ```Dart
     buffer.writeAllQ(
-      ['one','two','three','four'],
+      ['one','two','three'],
        separator: ', ',
     );
-    print(buffer.toString()); // Console output below \/
+    expect(buffer.toString(), '\'one\', \'two\', \'three\'' );
+    print(buffer.toString()); // Console output below
     ```
     ```Console
-    'one', 'two', 'three', 'four'
+    'one', 'two', 'three'
     ```
 
 4. **writelnAllQ**(Iterable objects, {String separator1, String separator2, QuoationMark delimiter})
@@ -62,19 +65,19 @@ It is assumed that `buffer` is an instance of `StringBuffer`.
     Writes *objects* in sequence: *delimiter*, *objects[0]*, *separator1*, *delimiter*, *separator2*, *newline symbol*, etc.
     ```Dart
     buffer.writelnAllQ(
-      ['one','two','three','four'],
+      ['one','two','three'],
       separator1: ' #',
       separator2: ',',
       delimiter: QuotationMark.DOUBLE,
     );
-    print(buffer.toString()); // Console output below \/
+    expect(buffer.toString(), '\"one #\",\n\"two #\",\n\"three\#');
+    print(buffer.toString()); // Console output below
     print('--- ---');
     ```
     ```Console
      "one #",
      "two #",
-     "three #",
-     "four"
+     "three"
 
      --- ---
     ```
@@ -89,7 +92,10 @@ Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/quote_buffer/issues
 
-[example]: example
+[example]: https://github.com/simphotonics/quote_buffer/tree/main/example
+
 [quote_buffer]: https://pub.dev/packages/quote_buffer
+
 [Quote]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote.html
-[StringBuffer]: https://api.dart.dev/stable/2.8.4/dart-core/StringBuffer-class.html
+
+[StringBuffer]: https://api.dart.dev/stable/latest/dart-core/StringBuffer-class.html
