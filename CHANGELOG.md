@@ -1,23 +1,26 @@
+## 0.2.3
+
+Migrated CI to github.
+
 ## 0.2.2
 
-- Switched to default test suite.
+Switched to default test suite.
 
 ## 0.2.2-nullsafety
 
-- Min. SDK version now 2.10.0.
+Min. SDK version now 2.10.0.
 
 ## 0.2.1-nullsafety
 
-* Changed output format of method `writeAllQ()`.
+Changed output format of method `writeAllQ()`.
 
 ## 0.2.0-nullsafety
 
-* Added null-safety features.
+Added null-safety features.
 
 ## 0.1.5
 
 Amended docs.
-
 
 ## 0.1.4
 
