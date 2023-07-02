@@ -1,3 +1,6 @@
+## 0.2.5
+- Updated example doc.
+
 ## 0.2.4
 
 - Applied lints.

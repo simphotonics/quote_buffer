@@ -1,16 +1,14 @@
 name: quote_buffer
 
 description: Extension on StringBuffer that simplifies transforming single
-  objects and lists of objects into quoted strings.
+  objects and iterables into quoted strings.
 
-version: 0.2.4
+version: 0.2.5
 
 homepage: https://github.com/simphotonics/quote_buffer
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-
-dependencies: null
 
 dev_dependencies:
   lints: ^2.1.1
