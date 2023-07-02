@@ -1,3 +1,9 @@
+## 0.2.4
+
+- Applied lints.
+- Min. SDK version is not 3.0.0.
+- Removed enum `Punctuation`, replaced it with enhanced enum `QuotationMark`.
+
 ## 0.2.3
 
 Migrated CI to github.

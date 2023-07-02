@@ -4,15 +4,15 @@ import 'package:quote_buffer/quote_buffer.dart';
 
 void main() {
   group('writeQ():', () {
-    test('QuotationMark.Double', () {
+    test('QuotationMark.double', () {
       final b = StringBuffer();
       b.writeQ(
         'TableName',
-        delimiter: Punctuation.doubleQuotationMark,
+        delimiter: QuotationMark.double,
       );
-      expect(b.toString(), '\"TableName\"');
+      expect(b.toString(), '"TableName"');
     });
-    test('QuotationMark.Single', () {
+    test('QuotationMark.single', () {
       final b = StringBuffer();
       b.writeQ('TableName');
       expect(b.toString(), '\'TableName\'');
@@ -20,12 +20,12 @@ void main() {
   });
 
   group('writeAllQ():', () {
-    test('QuotationMark.Double', () {
+    test('QuotationMark.double', () {
       final b = StringBuffer();
-      b.writeAllQ(['TableName'], delimiter: Punctuation.doubleQuotationMark);
-      expect(b.toString(), '\"TableName\"');
+      b.writeAllQ(['TableName'], delimiter: QuotationMark.double);
+      expect(b.toString(), '"TableName"');
     });
-    test('QuotationMark.Single', () {
+    test('QuotationMark.single', () {
       final b = StringBuffer();
       b.writeAllQ(['TableName']);
       expect(b.toString(), '\'TableName\'');
@@ -51,15 +51,15 @@ void main() {
   });
 
   group('writelnQ():', () {
-    test('QuotationMark.Double', () {
+    test('QuotationMark.double', () {
       final b = StringBuffer();
-      b.writelnQ('TableName', delimiter: Punctuation.doubleQuotationMark);
-      expect(b.toString(), '\"TableName\"\n');
+      b.writelnQ('TableName', delimiter: QuotationMark.double);
+      expect(b.toString(), '"TableName"\n');
     });
   });
 
   group('writelnAllQ()', () {
-    test('Single string literal.', () {
+    test('single string literal.', () {
       final b = StringBuffer();
       b.writelnAllQ(['TableName']);
       expect(b.toString(), '\'TableName\'\n');

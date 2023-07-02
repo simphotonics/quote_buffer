@@ -35,7 +35,7 @@ It is assumed that `buffer` is an instance of [`StringBuffer`][StringBuffer].
     Writes *delimiter*, *obj*, *delimiter*, *newline symbol* to the buffer.
     ```Dart
     final bufferS = QuoteBuffer();
-    buffer.writelnQ('name', delimiter: QuotationMark.DOUBLE);
+    buffer.writelnQ('name', delimiter: QuotationMark.double);
     expect(buffer.toString(), '\"name\"\n');
     print(buffer.toString()); // Console output below
     print('--- ---');
@@ -68,7 +68,7 @@ It is assumed that `buffer` is an instance of [`StringBuffer`][StringBuffer].
       ['one','two','three'],
       separator1: ' #',
       separator2: ',',
-      delimiter: QuotationMark.DOUBLE,
+      delimiter: QuotationMark.double,
     );
     expect(buffer.toString(), '\"one #\",\n\"two #\",\n\"three\#');
     print(buffer.toString()); // Console output below
@@ -84,7 +84,8 @@ It is assumed that `buffer` is an instance of [`StringBuffer`][StringBuffer].
 
 ## Examples
 
-The example located in the folder [example] shows how to use the extension [`Quote`][Quote] to simplify the generation of string literals whose content is enclosed by escaped quotation marks.
+The example located in the folder [example] shows how to use the extension
+[`Quote`][Quote] to simplify the generation of string literals whose content is enclosed by escaped quotation marks.
 
 ## Features and bugs
 

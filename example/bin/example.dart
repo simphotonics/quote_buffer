@@ -1,5 +1,4 @@
 import 'package:quote_buffer/quote_buffer.dart';
-import 'package:ansicolor/ansicolor.dart';
 
 /// To run this program in a terminal navigate to the
 /// root directory of the package `quote_buffer`and use:
@@ -8,42 +7,45 @@ import 'package:ansicolor/ansicolor.dart';
 /// ```
 /// followed by enter.
 void main(List<String> args) {
-  final green = AnsiPen()..green(bold: true);
-  final blue = AnsiPen()..blue(bold: true);
-  final magenta = AnsiPen()..magenta(bold: true);
+  final reset = '\u001B[0m';
+  String green(String input) => '\u001B[32m$input$reset';
+  String blue(String input) => '\u001B[34m$input$reset';
+  String yellow(String input) => '\u001B[33m$input$reset';
 
   final strings = <String>['one', 'two', 'three'];
   strings.addAll(args);
 
   final buffer = StringBuffer();
 
-  print(magenta('QuoteBuffer Extension - Example'));
+  print(green('-------------------------------'));
+  print(green('QuoteBuffer Extension - Example'));
+  print(green('-------------------------------'));
 
   // Adds:'\'1\'' (Note: Objects are first converted to strings.)
-  print(green('// Adding quotation marks.'));
+  print(yellow('// Adding quotation marks.'));
   print(blue('buffer.writeQ(29);'));
   buffer.writeQ(29);
   print(buffer.toString());
   buffer.clear();
 
   // Adds:'\'name\'\n'
-  print(green('// Adding double quotation marks and newline.'));
+  print(yellow('// Adding double quotation marks and newline.'));
   print(blue('buffer.writelnQ'
-      '(\'name\', delimiter: QuotationMark.DOUBLE);'));
-  buffer.writelnQ('name', delimiter: Punctuation.doubleQuotationMark);
+      '(\'name\', delimiter: QuotationMark.double);'));
+  buffer.writelnQ('name', delimiter: QuotationMark.double);
   print(buffer.toString());
   buffer.clear();
 
   // Prints:
   // 'one', 'two', 'three', 'four'
-  print(green('// Adding separator and quotation marks.'));
+  print(yellow('// Adding separator and quotation marks.'));
   buffer.writeAllQ(strings);
   print(blue('buffer.writeAllQ'
       '([\'one\',\'two\',\'three\',\'four\'], separator: \', \');'));
   print(buffer.toString());
   buffer.clear();
 
-  print(green('// Adding separator1, quotation marks, separator2, newline.'));
+  print(yellow('// Adding separator1, quotation marks, separator2, newline.'));
   print(blue(
     'buffer.writelnAllQ('
     '[\'one\',\'two\',\'three\',\'four\'], separator1: \'#\', separator2: \',\');',
@@ -52,7 +54,7 @@ void main(List<String> args) {
     strings,
     separator1: '#',
     separator2: ',',
-    delimiter: Punctuation.doubleQuotationMark,
+    delimiter: QuotationMark.double,
   );
   print(buffer.toString());
 }
