@@ -2,13 +2,15 @@
 
 ## Quote Buffer - Example
 
-The examples located in this folder show how to use the extension [`Quote`][Quote] to simplify the
-generation of string literals whose content is enclosed by escaped quotation marks.
+The examples located in this folder show how to use the extension
+[`Quote`][Quote] to simplify the
+generation of string literals whose content
+is enclosed by escaped quotation marks.
 
 A demo program can be run in a terminal by navigating to the
-folder *example* in your local copy of this library and using the command:
+root folder of your local copy of this library and using the command:
 ```Shell
-$ dart bin/example.dart
+$ dart example/bin/example.dart
 ```
 
 <details> <summary> Show file contents.</summary>
