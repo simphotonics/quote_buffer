@@ -1,3 +1,6 @@
+## 0.2.7
+- Fixed link.
+
 ## 0.2.6
 - Updated deps.
 - Fixed method docs.
