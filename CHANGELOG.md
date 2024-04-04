@@ -1,6 +1,7 @@
 ## 0.2.6
 - Updated deps.
-- Fixed method docs. 
+- Fixed method docs.
+- Amended `README.md`.
 
 ## 0.2.5
 - Updated example doc.

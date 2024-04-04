@@ -72,6 +72,8 @@ and shows the console output obtained by printing the buffer content.
 
     Writes *objects* in sequence: *delimiter*, *objects[0]*, *separator1*, *delimiter*, *separator2*, *newline symbol*, etc.
     ```Dart
+    import 'package:quote_buffer/quote_buffer.dart';
+
     final b = StringBuffer();
     b.writelnAllQ(
       ['one','two','three'],
