@@ -110,4 +110,4 @@ Please file feature requests and bugs at the [issue tracker].
 
 [Quote]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote.html
 
-[StringBuffer]: https://api.dart.dev/stable/latest/dart-core/StringBuffer-class.html
+[StringBuffer]: https://api.dart.dev/stable/dart-core/StringBuffer-class.html
