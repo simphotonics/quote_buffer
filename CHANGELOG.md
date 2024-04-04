@@ -1,3 +1,7 @@
+## 0.2.6
+- Updated deps.
+- Fixed method docs. 
+
 ## 0.2.5
 - Updated example doc.
 

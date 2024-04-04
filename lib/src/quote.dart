@@ -79,11 +79,13 @@ extension Quote on StringBuffer {
   /// * `separator2`: Optional separator `String`.
   ///
   /// Usage:
+  /// ```
   /// final b = StringBuffer();
   /// b.writelnAllQ([1, 2, 3], separator1: ',', separator2: ';');
   /// b.toString() == '\'1,\';\n'
   ///                 '\'2,\';\n'
   ///                 '\'3\'\n'
+  /// ```
   void writelnAllQ(
     Iterable objects, {
     String separator1 = '',
