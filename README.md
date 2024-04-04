@@ -22,6 +22,8 @@ and shows the console output obtained by printing the buffer content.
 
     Writes *delimiter*, *obj*, *delimiter* to the buffer.
     ```Dart
+    import 'package:quote_buffer/quote_buffer.dart';
+
     final b = StringBuffer();
     b.writeQ(29);
     expect(b.toString(),'\'29\'');
@@ -35,6 +37,8 @@ and shows the console output obtained by printing the buffer content.
 
     Writes *delimiter*, *obj*, *delimiter*, *newline symbol* to the buffer.
     ```Dart
+    import 'package:quote_buffer/quote_buffer.dart';
+
     final b = StringBuffer();
     b.writelnQ('name', delimiter: QuotationMark.double);
     expect(b.toString(), '\"name\"\n');
@@ -50,6 +54,8 @@ and shows the console output obtained by printing the buffer content.
 
     Writes *delimiter*, *first object*, *delimiter*, etc. to the buffer.
     ```Dart
+    import 'package:quote_buffer/quote_buffer.dart';
+
     final b = StringBuffer();
     b.writeAllQ(
       ['one','two','three'],
