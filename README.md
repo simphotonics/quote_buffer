@@ -17,14 +17,15 @@ transforming single objects and lists of objects into *quoted strings*.
 To use this library include [`quote_buffer`][quote_buffer] as dependency in your `pubspec.yaml` file.
 The section below lists the methods provided
 and shows the console output obtained by printing the buffer content.
-It is assumed that `buffer` is an instance of [`StringBuffer`][StringBuffer].
+
 1. **writeQ**(Object obj, {QuotationMark delimiter})
 
     Writes *delimiter*, *obj*, *delimiter* to the buffer.
     ```Dart
-    buffer.writeQ(29);
-    expect(buffer.toString(),'\'29\'');
-    print(buffer.toString()); // Console output below
+    final b = StringBuffer();
+    b.writeQ(29);
+    expect(b.toString(),'\'29\'');
+    print(b.toString()); // Console output below
     ```
     ```Console
     '29'
@@ -34,10 +35,10 @@ It is assumed that `buffer` is an instance of [`StringBuffer`][StringBuffer].
 
     Writes *delimiter*, *obj*, *delimiter*, *newline symbol* to the buffer.
     ```Dart
-    final bufferS = QuoteBuffer();
-    buffer.writelnQ('name', delimiter: QuotationMark.double);
-    expect(buffer.toString(), '\"name\"\n');
-    print(buffer.toString()); // Console output below
+    final b = StringBuffer();
+    b.writelnQ('name', delimiter: QuotationMark.double);
+    expect(b.toString(), '\"name\"\n');
+    print(b.toString()); // Console output below
     print('--- ---');
     ```
     ```Console
@@ -49,12 +50,13 @@ It is assumed that `buffer` is an instance of [`StringBuffer`][StringBuffer].
 
     Writes *delimiter*, *first object*, *delimiter*, etc. to the buffer.
     ```Dart
-    buffer.writeAllQ(
+    final b = StringBuffer();
+    b.writeAllQ(
       ['one','two','three'],
        separator: ', ',
     );
-    expect(buffer.toString(), '\'one\', \'two\', \'three\'' );
-    print(buffer.toString()); // Console output below
+    expect(b.toString(), '\'one\', \'two\', \'three\'' );
+    print(b.toString()); // Console output below
     ```
     ```Console
     'one', 'two', 'three'
@@ -64,14 +66,15 @@ It is assumed that `buffer` is an instance of [`StringBuffer`][StringBuffer].
 
     Writes *objects* in sequence: *delimiter*, *objects[0]*, *separator1*, *delimiter*, *separator2*, *newline symbol*, etc.
     ```Dart
-    buffer.writelnAllQ(
+    final b = StringBuffer();
+    b.writelnAllQ(
       ['one','two','three'],
       separator1: ' #',
       separator2: ',',
       delimiter: QuotationMark.double,
     );
-    expect(buffer.toString(), '\"one #\",\n\"two #\",\n\"three\#');
-    print(buffer.toString()); // Console output below
+    expect(b.toString(), '\"one #\",\n\"two #\",\n\"three\#');
+    print(b.toString()); // Console output below
     print('--- ---');
     ```
     ```Console
