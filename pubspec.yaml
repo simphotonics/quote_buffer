@@ -3,7 +3,7 @@ name: quote_buffer
 description: Extension methods for transforming objects and iterables into
   quoted strings and writing them to a string buffer.
 
-version: 0.2.8
+version: 0.2.7
 
 homepage: https://github.com/simphotonics/quote_buffer
 
