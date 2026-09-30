@@ -100,8 +100,8 @@ and shows the console output obtained by printing the buffer content.
     ```
 
 The methods writing an `Iterable` to the [`StringBuffer`][StringBuffer] accept
-the parameter `bool addTrailingSeparator`. Its default value is `true` and it
-can be used to prevent the addition of a trailing separator.
+the parameter `addTrailingSeparator`. Its value may be set to `false`
+to prevent the addition of a trailing separator.
 
 
 ## Examples

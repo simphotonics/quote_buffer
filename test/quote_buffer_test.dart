@@ -27,17 +27,17 @@ void main() {
     test('QuotationMark.double', () {
       final b = StringBuffer();
       b.writeAllQ([x1, x2], quotationMark: QuotationMark.double);
-      expect(b.toString(), '"x1", "x2", ');
+      expect(b.toString(), '"x1", "x2"');
     });
     test('QuotationMark.single', () {
       final b = StringBuffer();
-      b.writeAllQ([x1, x2], addTrailingSeparator: false);
-      expect(b.toString(), '\'x1\', \'x2\'');
+      b.writeAllQ([x1, x2], addTrailingSeparator: true);
+      expect(b.toString(), '\'x1\', \'x2\', ');
     });
 
     test('Separator:";"', () {
       final b = StringBuffer();
-      b.writeAllQ([x1, x2], separator: ';');
+      b.writeAllQ([x1, x2], separator: ';', addTrailingSeparator: true);
       expect(b.toString(), '\'x1\';\'x2\';');
     });
 

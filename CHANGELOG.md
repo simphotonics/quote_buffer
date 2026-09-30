@@ -1,3 +1,7 @@
+## 1.1.0
+- For extension method [writeAllQ][writeAllQ]: Changed default
+  value of the parameter `addTrailingSeparator` to `false`.
+
 ## 1.0.1
 - Fixed hyperlink.
 
@@ -99,3 +103,5 @@ Included file CHANGELOG.md.
 ## 0.0.1
 
 Initial Version of the library.
+
+[writeAllQ]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote/writeAllQ.html

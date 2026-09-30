@@ -31,7 +31,7 @@ extension Quote on StringBuffer {
     Iterable objects, {
     String separator = ', ',
     QuotationMark quotationMark = QuotationMark.single,
-    bool addTrailingSeparator = true,
+    bool addTrailingSeparator = false,
   }) {
     var iterator = objects.iterator;
     if (!iterator.moveNext()) return;
