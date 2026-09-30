@@ -127,7 +127,7 @@ Please file feature requests and bugs at the [issue tracker].
 
 [writeQ]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote/writeQ.html
 
-[writelnQ]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote/writelnlQ.html
+[writelnQ]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote/writelnQ.html
 
 [writeAllQ]: https://pub.dev/documentation/quote_buffer/latest/quote_buffer/Quote/writeAllQ.html
 
