@@ -7,9 +7,8 @@ The examples located in this folder show how to use the extension
 generation of string literals whose content
 is enclosed by escaped quotation marks.
 
-A demo program can be run in a terminal by navigating to the
-root folder of your local copy of this library and using the command:
-```Shell
+
+```Console
 $ dart example/bin/example.dart
 ```
 
