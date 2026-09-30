@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In the context of source code generation it is required to enclose
+In the context of source code generation it is often required to enclose
 emitted strings with (escaped) quotation marks.
 In the following, such strings are called *quoted strings*.
 Manually delimiting strings with quotation marks is error-prone
