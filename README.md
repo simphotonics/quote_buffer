@@ -20,7 +20,8 @@ as dependency in your `pubspec.yaml` file.
 The section below lists the methods provided
 and shows the console output obtained by printing the buffer content.
 
-1. [`writeQ`][writeQ]: Writes *quotationMark*, *obj*, *quotationMark* to the buffer.
+1. [`writeQ`][writeQ]: Writes `quotationMark + obj + quotationMark`
+   to the buffer.
     ```Dart
     import 'package:quote_buffer/quote_buffer.dart';
 
@@ -32,7 +33,8 @@ and shows the console output obtained by printing the buffer content.
     '29'
     ```
 
-2. [`writelnQ`][writelnQ]: Writes *quotationMark*, *obj*, *quotationMark*, *newline symbol* to the buffer.
+2. [`writelnQ`][writelnQ]: Writes `quotationMark + obj + quotationMark + newline`
+   to the buffer.
     ```Dart
     import 'package:quote_buffer/quote_buffer.dart';
 
@@ -46,7 +48,8 @@ and shows the console output obtained by printing the buffer content.
 
     --- ---
     ```
-3. [`writeAllQ`][writeAllQ]:Writes *quotationMark*, *first object*, *quotationMark*, etc. to the buffer.
+3. [`writeAllQ`][writeAllQ]: Writes `quotationMark + objects[0] + quotationMark + separator`,
+   etc. to the buffer.
     ```Dart
     import 'package:quote_buffer/quote_buffer.dart';
 
@@ -55,10 +58,10 @@ and shows the console output obtained by printing the buffer content.
     print(b.toString()); // Console output below
     ```
     ```Console
-    'one', 'two', 'three'
+    'one', 'two', 'three',
     ```
 
-4. [`writelnAllQ`][writelnAllQ]: Writes *objects* in sequence: *quotationMark*, *objects[0]*, *separator1*, *quotationMark*, *separator2*, *newline symbol*, etc.
+4. [`writelnAllQ`][writelnAllQ]: Writes `quotationMark + objects[0] + separator1 + quotationMark + separator2 + newline`, etc. to the buffer.
     ```Dart
     import 'package:quote_buffer/quote_buffer.dart';
 
@@ -80,7 +83,7 @@ and shows the console output obtained by printing the buffer content.
      --- ---
     ```
 
-5. [`writelnAll`][writelnAll]: Writes *objects* in sequence: *objects[0]*, *separator*,*newline*, etc.
+5. [`writelnAll`][writelnAll]: Writes `objects[0] + separator + newline`, etc. to the buffer.
     ```Dart
     import 'package:quote_buffer/quote_buffer.dart';
     final b = StringBuffer();
