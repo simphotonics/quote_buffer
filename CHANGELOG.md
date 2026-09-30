@@ -1,3 +1,9 @@
+## 1.0.0
+- Updated docs.
+- Require Dart SDK ^3.13.0
+- Added optional parameter `addTrailingSeparator` to extension methods
+  accepting an iterables as argument. 
+
 ## 0.2.7
 - Updated dependencies.
 - Fixed link.
