@@ -48,8 +48,8 @@ and shows the console output obtained by printing the buffer content.
 
     --- ---
     ```
-3. [`writeAllQ`][writeAllQ]: Writes `quotationMark + objects[0] + quotationMark + separator`,
-   etc. to the buffer.
+3. [`writeAllQ`][writeAllQ]: Writes `quotationMark + objects[0] + quotationMark + separator ...`,
+   to the buffer.
     ```Dart
     import 'package:quote_buffer/quote_buffer.dart';
 
@@ -61,7 +61,7 @@ and shows the console output obtained by printing the buffer content.
     'one', 'two', 'three',
     ```
 
-4. [`writelnAllQ`][writelnAllQ]: Writes `quotationMark + objects[0] + separator1 + quotationMark + separator2 + newline`, etc. to the buffer.
+4. [`writelnAllQ`][writelnAllQ]: Writes `quotationMark + objects[0] + separator1 + quotationMark + separator2 + newline ...` to the buffer.
     ```Dart
     import 'package:quote_buffer/quote_buffer.dart';
 
@@ -83,7 +83,7 @@ and shows the console output obtained by printing the buffer content.
      --- ---
     ```
 
-5. [`writelnAll`][writelnAll]: Writes `objects[0] + separator + newline`, etc. to the buffer.
+5. [`writelnAll`][writelnAll]: Writes `objects[0] + separator + newline ...` to the buffer.
     ```Dart
     import 'package:quote_buffer/quote_buffer.dart';
     final b = StringBuffer();
